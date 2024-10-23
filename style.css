@@ -1,0 +1,255 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Header and Navigation */
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.logo img {
+  margin-right: 0.5rem;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin: 0 1rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.nav-links a.active {
+  color: #cc9543;
+}
+
+.auth-buttons button {
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.sign-in {
+  background-color: #fff;
+  color: #cc9543;
+  border: 1px solid #cc9543;
+}
+
+.sign-up {
+  background-color: #cc9543;
+  color: #fff;
+}
+
+/* Main content */
+main {
+  margin-top: 80px; /* To account for fixed header */
+  padding: 2rem 5%;
+}
+
+.hero {
+  text-align: center;
+  padding: 4rem 0;
+  background-color: #f4f4f4;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.cta {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  background-color: #cc9543;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.paths {
+  padding: 4rem 0;
+}
+
+.paths h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.path-cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.path-card {
+  flex: 1;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.path-card h3 {
+  margin-bottom: 1rem;
+}
+
+.path-card p {
+  margin-bottom: 1.5rem;
+}
+
+.path-card button {
+  padding: 0.5rem 1rem;
+  background-color: #cc9543;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.testimonials {
+  padding: 4rem 0;
+  background-color: #f4f4f4;
+}
+
+.testimonials h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.testimonial-cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.testimonial-card {
+  flex: 1;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 4rem 5% 2rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.footer-logo img {
+  margin-right: 0.5rem;
+}
+
+.footer-links h4 {
+  margin-bottom: 1rem;
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid #555;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    margin-top: 1rem;
+    flex-direction: column;
+  }
+
+  .nav-links li {
+    margin: 0.5rem 0;
+  }
+
+  .auth-buttons {
+    margin-top: 1rem;
+  }
+
+  .path-cards,
+  .testimonial-cards {
+    flex-direction: column;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
