@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>video playlist</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amarante&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    />
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <section class="flex">
+        <a href="home.html" class="logo">GarudaVirtue.</a>
+
+        <form action="search.html" method="post" class="search-form">
+          <input
+            type="text"
+            name="search_box"
+            required
+            placeholder="cari modul..."
+            maxlength="100"
+          />
+          <button type="submit" class="fas fa-search"></button>
+        </form>
+
+        <div class="icons">
+          <div id="menu-btn" class="fas fa-bars"></div>
+          <div id="search-btn" class="fas fa-search"></div>
+          <div id="user-btn" class="fas fa-user"></div>
+          <div id="toggle-btn" class="fas fa-sun"></div>
+        </div>
+
+        <div class="profile">
+          <img src="images/pic-1.jpg" class="image" alt="" />
+          <h3 class="name">Samuel Franciscus</h3>
+          <p class="role">STEI - 19624567</p>
+          <a href="profile.html" class="btn">view profile</a>
+          <div class="flex-btn">
+            <a href="login.html" class="option-btn">login</a>
+            <a href="register.html" class="option-btn">register</a>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <div class="side-bar">
+      <div id="close-btn">
+        <i class="fas fa-times"></i>
+      </div>
+
+      <div class="profile">
+        <img src="images/pic-1.jpg" class="image" alt="" />
+        <h3 class="name">Samuel Franciscus</h3>
+        <p class="role">STEI - 19624567</p>
+        <a href="profile.html" class="btn">view profile</a>
+      </div>
+
+      <nav class="navbar">
+        <a href="home.html"><i class="fas fa-home"></i><span>home</span></a>
+        <a href="about.html"
+          ><i class="fas fa-question"></i><span>about</span></a
+        >
+        <a href="modul.html"
+          ><i class="fas fa-graduation-cap"></i><span>modul</span></a
+        >
+        <a href="playlist.html"
+          ><i class="fa-solid fa-flask-vial"></i><span>lab</span></a
+        >
+        <a href="contact.html"
+          ><i class="fas fa-headset"></i><span>kontak ditmawa</span></a
+        >
+      </nav>
+    </div>
+
+    <section class="virtual-labs">
+      <h1 class="heading">Virtual Labs</h1>
+
+      <div class="row">
+        <div class="column">
+          <form action="" method="post" class="save-playlist"></form>
+
+          <div class="thumb">
+            <img src="images/gambar lab main.jpg" alt="" />
+            <span>9 videos</span>
+          </div>
+        </div>
+        <div class="column">
+          <div class="details">
+            <h3>Pengenalan singkat</h3>
+            <p>
+              Virtual Labs merupakan salah satu fitur pembelajaran utama di website GarudaVirtue. Dalam labs ini, kamu akan dipersiapkan dengan berbagai materi dari modul terkait, sehingga kamu dapat menguji pengetahuan melalui kuis interaktif yang menarik
+            </p>
+      
+        </div>
+      </div>
+    </section>
+
+    <section class="playlist-videos">
+      <h1 class="heading">playlist videos</h1>
+
+      <div class="box-container">
+        <a class="box" href="watch-video.html">
+          <i class="fas fa-play"></i>
+          <img src="images/12.jpg" alt="" />
+          <h3>Modul 01</h3>
+        </a>
+
+        <a class="box" href="watch-video.html">
+          <i class="fas fa-play"></i>
+          <img src="images/13.jpg" alt="" />
+          <h3>Modul 02</h3>
+        </a>
+
+        <a class="box" href="watch-video.html">
+          <i class="fas fa-play"></i>
+          <img src="images/14.jpg" alt="" />
+          <h3>Modul 03</h3>
+        </a>
+
+        <a class="box" href="watch-video.html">
+          <i class="fas fa-play"></i>
+          <img src="images/15.jpg" alt="" />
+          <h3>Modul 04</h3>
+        </a>
+
+        <a class="box" href="watch-video.html">
+          <i class="fas fa-play"></i>
+          <img src="images/16.jpg" alt="" />
+          <h3>Modul 05</h3>
+        </a>
+
+        <a class="box" href="watch-video.html">
+          <i class="fas fa-play"></i>
+          <img src="images/17.jpg" alt="" />
+          <h3>Modul 06</h3>
+        </a>
+
+        <a class="box" href="watch-video.html">
+          <i class="fas fa-play"></i>
+          <img src="images/18.jpg" alt="" />
+          <h3>Modul 07</h3>
+        </a>
+
+        <a class="box" href="watch-video.html">
+          <i class="fas fa-play"></i>
+          <img src="images/19.jpg" alt="" />
+          <h3>Modul 08</h3>
+        </a>
+        <a class="box" href="watch-video.html">
+          <i class="fas fa-play"></i>
+          <img src="images/20.jpg" alt="" />
+          <h3>Modul 09</h3>
+        </a>
+      </div>
+    </section>
+
+    <!-- custom js file link  -->
+    <script src="js/script.js"></script>
+  </body>
+</html>

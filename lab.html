@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Virtual Lab</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amarante&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    />
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <section class="flex">
+        <a href="home.html" class="logo">GarudaVirtue.</a>
+
+        <form action="search.html" method="post" class="search-form">
+          <input
+            type="text"
+            name="search_box"
+            required
+            placeholder="Search experiments..."
+            maxlength="100"
+          />
+          <button type="submit" class="fas fa-search"></button>
+        </form>
+
+        <div class="icons">
+          <div id="menu-btn" class="fas fa-bars"></div>
+          <div id="search-btn" class="fas fa-search"></div>
+          <div id="user-btn" class="fas fa-user"></div>
+          <div id="toggle-btn" class="fas fa-sun"></div>
+        </div>
+
+        <div class="profile">
+          <img src="images/pic-1.jpg" class="image" alt="" />
+          <h3 class="name">Samuel Franciscus</h3>
+          <p class="role">STEI - 19624567</p>
+          <a href="profile.html" class="btn">view profile</a>
+          <div class="flex-btn">
+            <a href="login.html" class="option-btn">login</a>
+            <a href="register.html" class="option-btn">register</a>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <div class="side-bar">
+      <div id="close-btn">
+        <i class="fas fa-times"></i>
+      </div>
+
+      <div class="profile">
+        <img src="images/pic-1.jpg" class="image" alt="" />
+        <h3 class="name">Samuel Franciscus</h3>
+        <p class="role">STEI - 19624567</p>
+        <a href="profile.html" class="btn">view profile</a>
+      </div>
+
+      <nav class="navbar">
+        <a href="home.html"><i class="fas fa-home"></i><span>home</span></a>
+        <a href="about.html"
+          ><i class="fas fa-question"></i><span>about</span></a
+        >
+        <a href="virtual-lab.html"
+          ><i class="fas fa-flask"></i><span>virtual lab</span></a
+        >
+        <a href="modul.html"
+          ><i class="fas fa-graduation-cap"></i><span>modul</span></a
+        >
+        <a href="contact.html"
+          ><i class="fas fa-headset"></i><span>kontak ditmawa</span></a
+        >
+      </nav>
+    </div>
+
+    <section class="lab-details">
+      <h1 class="heading">Virtual Lab Details</h1>
+
+      <div class="row">
+        <div class="column">
+          <form action="" method="post" class="save-lab">
+            <button type="submit">
+              <i class="far fa-bookmark"></i> <span>save lab</span>
+            </button>
+          </form>
+
+          <div class="thumb">
+            <img src="images/lab-thumb.png" alt="" />
+            <span>5 modules</span>
+          </div>
+        </div>
+        <div class="column">
+          <div class="tutor">
+            <img src="images/tutor-pic.jpg" alt="" />
+            <div>
+              <h3>Dr. Albert Einstein</h3>
+              <span>20-09-2023</span>
+            </div>
+          </div>
+
+          <div class="details">
+            <h3>Physics Virtual Lab</h3>
+            <p>
+              Learn various physics concepts through interactive modules. This
+              virtual lab covers topics like kinematics, dynamics,
+              electromagnetism, and quantum mechanics.
+            </p>
+            <a href="teacher_profile.html" class="inline-btn">view profile</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lab-modules">
+      <h1 class="heading">Lab Modules</h1>
+
+      <div class="box-container">
+        <a class="box" href="module-1.html">
+          <i class="fas fa-play"></i>
+          <img src="images/module-1.png" alt="" />
+          <h3>Module 01: Kinematics Simulation</h3>
+        </a>
+
+        <a class="box" href="module-2.html">
+          <i class="fas fa-play"></i>
+          <img src="images/module-2.png" alt="" />
+          <h3>Module 02: Forces and Dynamics</h3>
+        </a>
+
+        <a class="box" href="module-3.html">
+          <i class="fas fa-play"></i>
+          <img src="images/module-3.png" alt="" />
+          <h3>Module 03: Electromagnetism</h3>
+        </a>
+
+        <a class="box" href="module-4.html">
+          <i class="fas fa-play"></i>
+          <img src="images/module-4.png" alt="" />
+          <h3>Module 04: Optics and Waves</h3>
+        </a>
+
+        <a class="box" href="module-5.html">
+          <i class="fas fa-play"></i>
+          <img src="images/module-5.png" alt="" />
+          <h3>Module 05: Quantum Mechanics</h3>
+        </a>
+      </div>
+    </section>
+
+    <!-- custom js file link  -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
