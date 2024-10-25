@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GarudaVirtue</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amarante&display=swap"
+      rel="stylesheet"
+    />
+    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amarante&display=swap"
+      rel="stylesheet"
+    />
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <section class="flex">
+        <a href="index.html" class="logo">GarudaVirtue</a>
+
+        <form action="search.html" method="post" class="search-form">
+          <input
+            type="text"
+            name="search_box"
+            required
+            placeholder="cari modul..."
+            maxlength="100"
+          />
+          <button type="submit" class="fas fa-search"></button>
+        </form>
+
+        <div class="icons">
+          <div id="menu-btn" class="fas fa-bars"></div>
+          <div id="search-btn" class="fas fa-search"></div>
+          <div id="user-btn" class="fas fa-user"></div>
+          <div id="toggle-btn" class="fas fa-sun"></div>
+        </div>
+
+        <div class="profile">
+          <img src="images/pic-1.jpg" class="image" alt="" />
+          <h3 class="name">Samuel Franciscus</h3>
+          <p class="role">STEI - 19624567</p>
+          <a href="profile.html" class="btn">view profile</a>
+          <div class="flex-btn">
+            <a href="login.html" class="option-btn">login</a>
+            <a href="register.html" class="option-btn">register</a>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <div class="side-bar">
+      <div id="close-btn">
+        <i class="fas fa-times"></i>
+      </div>
+
+      <div class="profile">
+        <img src="images/pic-1.jpg" class="image" alt="" />
+        <h3 class="name">Samuel Franciscus</h3>
+        <p class="role">STEI - 19624567</p>
+        <a href="profile.html" class="btn">view profile</a>
+      </div>
+
+      <nav class="navbar">
+        <a href="index.html"><i class="fas fa-home"></i><span>home</span></a>
+        <a href="about.html"
+          ><i class="fas fa-question"></i><span>about</span></a
+        >
+        <a href="modul.html"
+          ><i class="fas fa-graduation-cap"></i><span>modul</span></a
+        >
+        <a href="lab.html"
+        ><i class="fa-solid fa-flask-vial"></i><span>lab</span></a
+      >
+        
+        <a href="contact.html"
+          ><i class="fas fa-headset"></i><span>kontak ditmawa</span></a
+        >
+      </nav>
+    </div>
+
+    <section class="watch-video">
+      <div class="video-container">
+        <div class="video">
+          <video
+            src="/images/vid-modul1.mp4"
+            controls
+            poster="images/Pancasila dan Kewarganegaraan - KU2071/1.png"
+            id="video"
+          ></video>
+        </div>
+        <h3 class="title">Modul 6 - </h3>
+        <div class="info">
+          <p class="date">
+            <i class="fas fa-calendar"></i><span>24-10-2024</span>
+          </p>
+          
+        </div>
+
+        <form action="" method="post" class="flex">
+          <a href="/Quiz-main/index.html" class="inline-btn">Mulai quiz</a>
+          <button><i class="far fa-heart"></i><span>like</span></button>
+        </form>
+ 
+      </div>
+    </section>
+
+    <section class="comments">
+      <h1 class="heading">3 comments</h1>
+
+      <form action="" class="add-comment">
+        <h3>tambahkan komentar</h3>
+        <textarea
+          name="comment_box"
+          placeholder="masukkan komentar anda..."
+          required
+          maxlength="1000"
+          cols="30"
+          rows="10"
+        ></textarea>
+        <input
+          type="submit"
+          value="add comment"
+          class="inline-btn"
+          name="add_comment"
+        />
+      </form>
+
+      <h1 class="heading">user comments</h1>
+
+      <div class="box-container">
+        <div class="box">
+          <div class="user">
+            <img src="images/pic-1.jpg" alt="" />
+            <div>
+              <h3>Samuel Franciscus</h3>
+              <span>24-10-2024</span>
+            </div>
+          </div>
+          <div class="comment-box">
+            ggwp pak!
+          </div>
+          <form action="" class="flex-btn">
+            <input
+              type="submit"
+              value="Edit komentar"
+              name="edit_comment"
+              class="inline-option-btn"
+            />
+            <input
+              type="submit"
+              value="Hapus komentar"
+              name="delete_comment"
+              class="inline-delete-btn"
+            />
+          </form>
+        </div>
+
+        <div class="box">
+          <div class="user">
+            <img src="images/pic-2.jpg" alt="" />
+            <div>
+              <h3>maba npc</h3>
+              <span>24-10-2024</span>
+            </div>
+          </div>
+          <div class="comment-box">mantap pak! keep going!</div>
+        </div>
+
+        <div class="box">
+          <div class="user">
+            <img src="images/pic-3.jpg" alt="" />
+            <div>
+              <h3>maba npc</h3>
+              <span>24-10-2024</span>
+            </div>
+          </div>
+          <div class="comment-box">
+            masih kurang paham hehe :-)
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="user">
+            <img src="images/pic-4.jpg" alt="" />
+            <div>
+              <h3>maba npc</h3>
+              <span>24-10-2024</span>
+            </div>
+          </div>
+          <div class="comment-box">rispek ke pengajarnya, salut abis!</div>
+        </div>
+
+    </section>
+
+    
+
+    <!-- custom js file link  -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
