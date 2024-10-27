@@ -1,94 +1,80 @@
 let quizData = [
   {
-    question: "Apa makna dari Pancasila sebagai dasar negara?",
+    question:
+      "Apa yang menjadi prinsip dasar negara hukum menurut UUD 1945 dalam melindungi hak warga negara?",
     options: [
-      "Ideologi tunggal",
-      "Landasan etika dan moral",
-      "Sumber kekuasaan",
-      "Pedoman hidup masyarakat",
+      "Pembatasan kebebasan berbicara",
+      "Keberadaan organ eksekutif yang independen",
+      "Pemusatan kekuasaan pada presiden",
+      "Mengutamakan keamanan ketimbang keadilan",
     ],
-    correct: "Landasan etika dan moral",
+    correct: "Keberadaan organ eksekutif yang independen",
   },
   {
     question:
-      "Prinsip ketuhanan yang maha esa dalam Pancasila menekankan pada?",
+      "Dalam konsep negara hukum modern, apa peran utama negara terhadap warganya?",
     options: [
-      "Kebebasan beragama",
-      "Keberagaman agama",
-      "Pengakuan terhadap Tuhan yang satu",
-      "Penolakan terhadap agama",
+      "Hanya menjaga ketertiban umum tanpa ikut campur dalam kesejahteraan",
+      "Memberikan perlindungan hak asasi melalui pemenuhan kesejahteraan umum",
+      "Menegakkan keamanan melalui otoritas absolut",
+      "Menjaga stabilitas ekonomi nasional melalui intervensi penuh",
     ],
-    correct: "Pengakuan terhadap Tuhan yang satu",
+    correct:
+      "Memberikan perlindungan hak asasi melalui pemenuhan kesejahteraan umum",
   },
   {
     question:
-      "Sila kedua Pancasila, yaitu Kemanusiaan yang Adil dan Beradab, menekankan pentingnya",
+      "Apa yang dimaksud dengan 'Supermasi Hukum' dalam konteks negara hukum?",
     options: [
-      "Keadilan sosial",
-      "Hak asasi manusia",
-      "Persatuan bangsa",
-      "Pendidikan untuk semua",
+      "Pengutamaan kekuasaan eksekutif di atas hukum",
+      "Pengutamaan kepentingan individu atas hukum",
+      "Hukum memiliki kedudukan tertinggi yang mengikat semua pihak",
+      "Pembentukan hukum berdasarkan konsensus mayoritas",
     ],
-    correct: "Hak asasi manusia",
-  },
-  {
-    question: "Salah satu tujuan Pancasila adalah untuk",
-    options: [
-      "Menciptakan konflik antaragama",
-      "Memperkuat identitas nasional",
-      "Menghapuskan budaya lokal",
-      "Mewujudkan masyarakat sekuler",
-    ],
-    correct: "Memperkuat identitas nasional",
+    correct: "Hukum memiliki kedudukan tertinggi yang mengikat semua pihak",
   },
   {
     question:
-      "Sila keempat Pancasila, Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan dalam Permusyawaratan/Perwakilan, menekankan pentingnya",
+      "Menurut teori Stuffenbau, apakah norma dasar dari sistem hukum di Indonesia?",
     options: [
-      "Demokrasi langsung",
-      "Keterlibatan masyarakat",
-      "Pemerintahan otoriter",
-      "Pemimpin yang kuat",
+      "Undang-undang",
+      "Peraturan pemerintah",
+      "Pancasila",
+      "Peraturan daerah",
     ],
-    correct: "Keterlibatan masyarakat",
+    correct: "Pancasila",
+  },
+  {
+    question: "Apakah yang menjadi ciri khas dari negara hukum klasik?",
+    options: [
+      "Memberikan jaminan terhadap kesejahteraan rakyat",
+      "Melibatkan diri dalam berbagai bidang kehidupan sosial",
+      "Hanya menjaga ketertiban dan melindungi hak asasi secara pasif",
+      "Mengutamakan prinsip kesetaraan dalam hukum",
+    ],
+    correct: "Hanya menjaga ketertiban dan melindungi hak asasi secara pasif",
   },
   {
     question:
-      "Sila pertama Pancasila, Ketuhanan yang Maha Esa, mencerminkan sikap",
-    options: ["Materialistis", "Spiritual", "Agnostik", "Atheis"],
-    correct: "Spiritual",
+      "Apa yang menjadi pembatas kekuasaan penguasa dalam negara hukum menurut pandangan Rechstaat?",
+    options: [
+      "Perintah langsung dari presiden",
+      "Adanya peraturan undang-undang yang mengikat",
+      "Kebebasan tanpa batas untuk penguasa",
+      "Kekuasaan militer yang terpisah",
+    ],
+    correct: "Adanya peraturan undang-undang yang mengikat",
   },
   {
     question:
-      "Pancasila sebagai pandangan hidup bangsa Indonesia berfungsi untuk",
+      "Dalam sistem hukum Indonesia, apa fungsi dari 'prinsip demokrasi' yang diterapkan?",
     options: [
-      "Membatasi kebebasan individu",
-      "Mewujudkan kesejahteraan sosial",
-      "Menghapuskan perbedaan budaya",
-      "Menjaga kestabilan politik",
+      "Menjamin bahwa presiden memiliki hak veto absolut",
+      "Memberikan wewenang penuh kepada mayoritas",
+      "Memastikan bahwa kedaulatan berada di tangan rakyat",
+      "Mengutamakan hukum adat sebagai pedoman utama",
     ],
-    correct: "Mewujudkan kesejahteraan sosial",
-  },
-  {
-    question:
-      "Dalam konteks Pancasila, persatuan dan kesatuan bangsa diartikan sebagai",
-    options: [
-      "Menjaga keragaman",
-      "Mengabaikan perbedaan",
-      "Mengutamakan konflik",
-      "Mempromosikan diskriminasi",
-    ],
-    correct: "Menjaga keragaman",
-  },
-  {
-    question: "Pancasila sebagai dasar negara mengatur hubungan antara",
-    options: [
-      "Rakyat dan pemimpin",
-      "Individu dan komunitas",
-      "Agama dan negara",
-      "Semua pilihan di atas",
-    ],
-    correct: "Semua pilihan di atas",
+    correct: "Memastikan bahwa kedaulatan berada di tangan rakyat",
   },
 ];
 
@@ -196,7 +182,8 @@ const displayQuizResult = () => {
   quizResult.innerHTML = "";
 
   const resultHeading = document.createElement("h2");
-  resultHeading.innerHTML = `You have scored ${score} out of ${MAX_QUESTIONS}.`;
+  resultHeading.innerHTML = `Kamu mencetak ${score} dari ${MAX_QUESTIONS} pertanyaan!`;
+
   quizResult.appendChild(resultHeading);
 
   for (let i = 0; i < MAX_QUESTIONS; i++) {
@@ -215,8 +202,10 @@ const displayQuizResult = () => {
     resultItem.innerHTML = `<div class="question">Question ${i + 1}: ${
       quizData[i].question
     }</div>
-    <div class="user-answer">Your answer: ${userAnswer || "Not Answered"}</div>
-    <div class="correct-answer">Correct answer: ${correctAnswer}</div>`;
+                            <div class="user-answer">Your answer: ${
+                              userAnswer || "Not Answered"
+                            }</div>
+                            <div class="correct-answer">Correct answer: ${correctAnswer}</div>`;
 
     quizResult.appendChild(resultItem);
   }

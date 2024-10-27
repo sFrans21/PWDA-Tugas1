@@ -1,94 +1,77 @@
 let quizData = [
   {
-    question: "Apa makna dari Pancasila sebagai dasar negara?",
+    question: "Apa tujuan dari memahami sejarah perjuangan bangsa?",
     options: [
-      "Ideologi tunggal",
-      "Landasan etika dan moral",
-      "Sumber kekuasaan",
-      "Pedoman hidup masyarakat",
+      "Untuk memuliakan tokoh pahlawan",
+      "Agar bisa memahami makna Pancasila",
+      "Supaya bisa mencontoh negara lain",
+      "Hanya sebagai pelajaran sejarah",
     ],
-    correct: "Landasan etika dan moral",
+    correct: "Agar bisa memahami makna Pancasila",
+  },
+  {
+    question: "Apa yang dimaksud dengan multikulturalisme?",
+    options: [
+      "Ideologi yang menyatukan semua budaya",
+      "Sikap yang mengutamakan satu budaya",
+      "Pengakuan terhadap keberagaman budaya",
+      "Hanya budaya mayoritas yang dihargai",
+    ],
+    correct: "Pengakuan terhadap keberagaman budaya",
+  },
+  {
+    question: "Apa tujuan dari teori multikulturalisme 'Salad Bowl'?",
+    options: [
+      "Penyatuan budaya dalam satu wadah",
+      "Pembauran budaya tanpa kehilangan identitas",
+      "Dominasi budaya mayoritas",
+      "Asimilasi penuh dengan budaya lokal",
+    ],
+    correct: "Pembauran budaya tanpa kehilangan identitas",
   },
   {
     question:
-      "Prinsip ketuhanan yang maha esa dalam Pancasila menekankan pada?",
+      "Apa yang menjadi salah satu ancaman terhadap kehidupan berbangsa di Indonesia?",
     options: [
-      "Kebebasan beragama",
-      "Keberagaman agama",
-      "Pengakuan terhadap Tuhan yang satu",
-      "Penolakan terhadap agama",
+      "Peningkatan ekonomi",
+      "Kelangkaan komoditas tertentu",
+      "Meningkatnya pendidikan",
+      "Semakin banyak mahasiswa",
     ],
-    correct: "Pengakuan terhadap Tuhan yang satu",
+    correct: "Kelangkaan komoditas tertentu",
   },
   {
     question:
-      "Sila kedua Pancasila, yaitu Kemanusiaan yang Adil dan Beradab, menekankan pentingnya",
+      "Apa makna dari semboyan 'JASMERAH' yang dikemukakan oleh Soekarno?",
     options: [
-      "Keadilan sosial",
-      "Hak asasi manusia",
-      "Persatuan bangsa",
-      "Pendidikan untuk semua",
+      "Jangan melupakan jasa para pahlawan",
+      "Jangan melupakan sejarah",
+      "Jangan merendahkan budaya sendiri",
+      "Jangan mengagungkan budaya lain",
     ],
-    correct: "Hak asasi manusia",
-  },
-  {
-    question: "Salah satu tujuan Pancasila adalah untuk",
-    options: [
-      "Menciptakan konflik antaragama",
-      "Memperkuat identitas nasional",
-      "Menghapuskan budaya lokal",
-      "Mewujudkan masyarakat sekuler",
-    ],
-    correct: "Memperkuat identitas nasional",
+    correct: "Jangan melupakan sejarah",
   },
   {
     question:
-      "Sila keempat Pancasila, Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan dalam Permusyawaratan/Perwakilan, menekankan pentingnya",
+      "Peran mahasiswa dalam kehidupan berbangsa adalah sebagai berikut, kecuali?",
     options: [
-      "Demokrasi langsung",
-      "Keterlibatan masyarakat",
-      "Pemerintahan otoriter",
-      "Pemimpin yang kuat",
+      "Penggerak pembangunan",
+      "Motivator pembangunan",
+      "Pengisi posisi pemerintahan",
+      "Evaluator pembangunan",
     ],
-    correct: "Keterlibatan masyarakat",
+    correct: "Pengisi posisi pemerintahan",
   },
   {
     question:
-      "Sila pertama Pancasila, Ketuhanan yang Maha Esa, mencerminkan sikap",
-    options: ["Materialistis", "Spiritual", "Agnostik", "Atheis"],
-    correct: "Spiritual",
-  },
-  {
-    question:
-      "Pancasila sebagai pandangan hidup bangsa Indonesia berfungsi untuk",
+      "Menurut Samuel P. Huntington, apa yang memicu konflik antarperadaban di masa depan?",
     options: [
-      "Membatasi kebebasan individu",
-      "Mewujudkan kesejahteraan sosial",
-      "Menghapuskan perbedaan budaya",
-      "Menjaga kestabilan politik",
+      "Perbedaan politik",
+      "Ideologi kapitalisme",
+      "Faktor SARA",
+      "Faktor ekonomi",
     ],
-    correct: "Mewujudkan kesejahteraan sosial",
-  },
-  {
-    question:
-      "Dalam konteks Pancasila, persatuan dan kesatuan bangsa diartikan sebagai",
-    options: [
-      "Menjaga keragaman",
-      "Mengabaikan perbedaan",
-      "Mengutamakan konflik",
-      "Mempromosikan diskriminasi",
-    ],
-    correct: "Menjaga keragaman",
-  },
-  {
-    question: "Pancasila sebagai dasar negara mengatur hubungan antara",
-    options: [
-      "Rakyat dan pemimpin",
-      "Individu dan komunitas",
-      "Agama dan negara",
-      "Semua pilihan di atas",
-    ],
-    correct: "Semua pilihan di atas",
+    correct: "Faktor SARA",
   },
 ];
 
@@ -196,7 +179,8 @@ const displayQuizResult = () => {
   quizResult.innerHTML = "";
 
   const resultHeading = document.createElement("h2");
-  resultHeading.innerHTML = `You have scored ${score} out of ${MAX_QUESTIONS}.`;
+  resultHeading.innerHTML = `Kamu mencetak ${score} dari ${MAX_QUESTIONS} pertanyaan!`;
+
   quizResult.appendChild(resultHeading);
 
   for (let i = 0; i < MAX_QUESTIONS; i++) {
@@ -215,8 +199,10 @@ const displayQuizResult = () => {
     resultItem.innerHTML = `<div class="question">Question ${i + 1}: ${
       quizData[i].question
     }</div>
-    <div class="user-answer">Your answer: ${userAnswer || "Not Answered"}</div>
-    <div class="correct-answer">Correct answer: ${correctAnswer}</div>`;
+        <div class="user-answer">Your answer: ${
+          userAnswer || "Not Answered"
+        }</div>
+        <div class="correct-answer">Correct answer: ${correctAnswer}</div>`;
 
     quizResult.appendChild(resultItem);
   }

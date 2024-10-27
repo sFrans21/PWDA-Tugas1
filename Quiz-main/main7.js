@@ -1,94 +1,79 @@
 let quizData = [
   {
-    question: "Apa makna dari Pancasila sebagai dasar negara?",
+    question:
+      "Apa yang dimaksud dengan kewarganegaraan dalam arti yuridis menurut materi?",
     options: [
-      "Ideologi tunggal",
-      "Landasan etika dan moral",
-      "Sumber kekuasaan",
-      "Pedoman hidup masyarakat",
+      "Kewarganegaraan yang diakui berdasarkan hukum formal",
+      "Kewarganegaraan yang bersifat sosial dan budaya",
+      "Keanggotaan yang hanya ditentukan oleh tempat kelahiran",
+      "Hubungan sosial antara negara dengan penduduknya",
     ],
-    correct: "Landasan etika dan moral",
+    correct: "Kewarganegaraan yang diakui berdasarkan hukum formal",
   },
   {
     question:
-      "Prinsip ketuhanan yang maha esa dalam Pancasila menekankan pada?",
+      "Bagaimana konsep asas ‘ius soli’ mempengaruhi penentuan kewarganegaraan seseorang?",
     options: [
-      "Kebebasan beragama",
-      "Keberagaman agama",
-      "Pengakuan terhadap Tuhan yang satu",
-      "Penolakan terhadap agama",
+      "Berdasarkan garis keturunan atau darah",
+      "Berdasarkan tempat kelahiran",
+      "Berdasarkan status pernikahan orang tua",
+      "Berdasarkan hukum negara lain",
     ],
-    correct: "Pengakuan terhadap Tuhan yang satu",
+    correct: "Berdasarkan tempat kelahiran",
   },
   {
     question:
-      "Sila kedua Pancasila, yaitu Kemanusiaan yang Adil dan Beradab, menekankan pentingnya",
+      "Pasal 27 ayat 1 UUD 1945 menetapkan kewajiban warga negara. Apa kewajiban tersebut?",
     options: [
-      "Keadilan sosial",
-      "Hak asasi manusia",
-      "Persatuan bangsa",
-      "Pendidikan untuk semua",
+      "Menaati hukum dan peraturan pemerintah",
+      "Berpartisipasi dalam pemilu",
+      "Menjaga lingkungan hidup",
+      "Memiliki kedudukan setara dalam ekonomi",
     ],
-    correct: "Hak asasi manusia",
-  },
-  {
-    question: "Salah satu tujuan Pancasila adalah untuk",
-    options: [
-      "Menciptakan konflik antaragama",
-      "Memperkuat identitas nasional",
-      "Menghapuskan budaya lokal",
-      "Mewujudkan masyarakat sekuler",
-    ],
-    correct: "Memperkuat identitas nasional",
+    correct: "Menaati hukum dan peraturan pemerintah",
   },
   {
     question:
-      "Sila keempat Pancasila, Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan dalam Permusyawaratan/Perwakilan, menekankan pentingnya",
+      "Apa perbedaan antara hak asasi manusia dan hak warga negara dalam konteks UUD 1945?",
     options: [
-      "Demokrasi langsung",
-      "Keterlibatan masyarakat",
-      "Pemerintahan otoriter",
-      "Pemimpin yang kuat",
+      "Hak asasi bersifat universal, sedangkan hak warga negara khusus",
+      "Hak asasi berfokus pada pendidikan, hak warga negara pada ekonomi",
+      "Hak warga negara berfokus pada kewajiban, hak asasi pada kedudukan",
+      "Hak warga negara lebih luas dibandingkan hak asasi manusia",
     ],
-    correct: "Keterlibatan masyarakat",
+    correct: "Hak asasi bersifat universal, sedangkan hak warga negara khusus",
   },
   {
     question:
-      "Sila pertama Pancasila, Ketuhanan yang Maha Esa, mencerminkan sikap",
-    options: ["Materialistis", "Spiritual", "Agnostik", "Atheis"],
-    correct: "Spiritual",
+      "Mengapa prinsip kewarganegaraan tunggal diterapkan dalam UU Kewarganegaraan Indonesia?",
+    options: [
+      "Untuk meminimalkan konflik identitas di negara",
+      "Agar lebih banyak hak diberikan pada warga negara",
+      "Untuk menjaga kesetiaan penuh terhadap Indonesia",
+      "Agar proses administrasi lebih efisien",
+    ],
+    correct: "Untuk menjaga kesetiaan penuh terhadap Indonesia",
+  },
+  {
+    question: "Apa yang dimaksud dengan peran positif seorang warga negara?",
+    options: [
+      "Mematuhi hukum tanpa pengecualian",
+      "Berpartisipasi aktif dalam pembangunan negara",
+      "Meminta layanan negara untuk kebutuhan hidup",
+      "Menolak campur tangan negara dalam hal pribadi",
+    ],
+    correct: "Meminta layanan negara untuk kebutuhan hidup",
   },
   {
     question:
-      "Pancasila sebagai pandangan hidup bangsa Indonesia berfungsi untuk",
+      "Hak warga negara untuk mendapatkan pendidikan diatur dalam pasal berapa?",
     options: [
-      "Membatasi kebebasan individu",
-      "Mewujudkan kesejahteraan sosial",
-      "Menghapuskan perbedaan budaya",
-      "Menjaga kestabilan politik",
+      "Pasal 27 UUD 1945",
+      "Pasal 28 UUD 1945",
+      "Pasal 30 UUD 1945",
+      "Pasal 31 UUD 1945",
     ],
-    correct: "Mewujudkan kesejahteraan sosial",
-  },
-  {
-    question:
-      "Dalam konteks Pancasila, persatuan dan kesatuan bangsa diartikan sebagai",
-    options: [
-      "Menjaga keragaman",
-      "Mengabaikan perbedaan",
-      "Mengutamakan konflik",
-      "Mempromosikan diskriminasi",
-    ],
-    correct: "Menjaga keragaman",
-  },
-  {
-    question: "Pancasila sebagai dasar negara mengatur hubungan antara",
-    options: [
-      "Rakyat dan pemimpin",
-      "Individu dan komunitas",
-      "Agama dan negara",
-      "Semua pilihan di atas",
-    ],
-    correct: "Semua pilihan di atas",
+    correct: "Pasal 31 UUD 1945",
   },
 ];
 
@@ -196,7 +181,8 @@ const displayQuizResult = () => {
   quizResult.innerHTML = "";
 
   const resultHeading = document.createElement("h2");
-  resultHeading.innerHTML = `You have scored ${score} out of ${MAX_QUESTIONS}.`;
+  resultHeading.innerHTML = `Kamu mencetak ${score} dari ${MAX_QUESTIONS} pertanyaan!`;
+
   quizResult.appendChild(resultHeading);
 
   for (let i = 0; i < MAX_QUESTIONS; i++) {
@@ -215,8 +201,10 @@ const displayQuizResult = () => {
     resultItem.innerHTML = `<div class="question">Question ${i + 1}: ${
       quizData[i].question
     }</div>
-    <div class="user-answer">Your answer: ${userAnswer || "Not Answered"}</div>
-    <div class="correct-answer">Correct answer: ${correctAnswer}</div>`;
+                    <div class="user-answer">Your answer: ${
+                      userAnswer || "Not Answered"
+                    }</div>
+                    <div class="correct-answer">Correct answer: ${correctAnswer}</div>`;
 
     quizResult.appendChild(resultItem);
   }

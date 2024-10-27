@@ -1,94 +1,81 @@
 let quizData = [
   {
-    question: "Apa makna dari Pancasila sebagai dasar negara?",
+    question:
+      "Bagaimana demokrasi Indonesia menurut konsep Demokrasi Pancasila?",
     options: [
-      "Ideologi tunggal",
-      "Landasan etika dan moral",
-      "Sumber kekuasaan",
-      "Pedoman hidup masyarakat",
+      "Mengutamakan kebebasan individu",
+      "Berlandaskan hati nurani dan kesetaraan",
+      "Bersifat formal dan administratif",
+      "Mengikuti model demokrasi liberal",
     ],
-    correct: "Landasan etika dan moral",
+    correct: "Berlandaskan hati nurani dan kesetaraan",
   },
   {
     question:
-      "Prinsip ketuhanan yang maha esa dalam Pancasila menekankan pada?",
+      "Apa yang dimaksud dengan ‘demokrasi prosedural’ dalam konteks Indonesia?",
     options: [
-      "Kebebasan beragama",
-      "Keberagaman agama",
-      "Pengakuan terhadap Tuhan yang satu",
-      "Penolakan terhadap agama",
+      "Demokrasi yang hanya menjalankan aturan tanpa esensi",
+      "Sistem pemerintahan yang melibatkan rakyat secara aktif",
+      "Demokrasi yang menekankan hak asasi manusia",
+      "Pemerintahan berdasarkan ideologi tertentu",
     ],
-    correct: "Pengakuan terhadap Tuhan yang satu",
+    correct: "Demokrasi yang hanya menjalankan aturan tanpa esensi",
   },
   {
     question:
-      "Sila kedua Pancasila, yaitu Kemanusiaan yang Adil dan Beradab, menekankan pentingnya",
+      "Sanusi (1998) menyebutkan bahwa salah satu pilar demokrasi konstitusional Indonesia adalah:",
     options: [
-      "Keadilan sosial",
-      "Hak asasi manusia",
-      "Persatuan bangsa",
-      "Pendidikan untuk semua",
+      "Demokrasi yang berdasarkan kebebasan penuh",
+      "Demokrasi dengan kecerdasan",
+      "Demokrasi yang sepenuhnya dikuasai negara",
+      "Demokrasi tanpa otonomi daerah",
     ],
-    correct: "Hak asasi manusia",
-  },
-  {
-    question: "Salah satu tujuan Pancasila adalah untuk",
-    options: [
-      "Menciptakan konflik antaragama",
-      "Memperkuat identitas nasional",
-      "Menghapuskan budaya lokal",
-      "Mewujudkan masyarakat sekuler",
-    ],
-    correct: "Memperkuat identitas nasional",
+    correct: "Demokrasi dengan kecerdasan",
   },
   {
     question:
-      "Sila keempat Pancasila, Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan dalam Permusyawaratan/Perwakilan, menekankan pentingnya",
+      "Menurut Bung Karno, demokrasi yang cocok bagi Indonesia bukanlah demokrasi Barat tetapi demokrasi berbentuk:",
     options: [
-      "Demokrasi langsung",
-      "Keterlibatan masyarakat",
-      "Pemerintahan otoriter",
-      "Pemimpin yang kuat",
+      "Liberalisme individu",
+      "Permusyawaratan yang memberi hidup",
+      "Kedaulatan rakyat absolut",
+      "Kesepakatan berbasis ekonomi",
     ],
-    correct: "Keterlibatan masyarakat",
+    correct: "Permusyawaratan yang memberi hidup",
   },
   {
     question:
-      "Sila pertama Pancasila, Ketuhanan yang Maha Esa, mencerminkan sikap",
-    options: ["Materialistis", "Spiritual", "Agnostik", "Atheis"],
-    correct: "Spiritual",
+      "Apa yang menjadi tujuan utama penerapan pendidikan demokrasi di Indonesia?",
+    options: [
+      "Mendorong rakyat berperan dalam pemilu",
+      "Meningkatkan ketertiban umum",
+      "Membangun warga negara yang tahu, mau, dan mampu demokrasi",
+      "Menghapus perbedaan pandangan politik di masyarakat",
+    ],
+    correct: "Membangun warga negara yang tahu, mau, dan mampu demokrasi",
   },
   {
     question:
-      "Pancasila sebagai pandangan hidup bangsa Indonesia berfungsi untuk",
+      "Bagaimana perbedaan utama antara demokrasi langsung dan demokrasi Pancasila?",
     options: [
-      "Membatasi kebebasan individu",
-      "Mewujudkan kesejahteraan sosial",
-      "Menghapuskan perbedaan budaya",
-      "Menjaga kestabilan politik",
+      "Demokrasi langsung didasarkan pada keadilan, Pancasila pada mayoritas",
+      "Demokrasi langsung mengutamakan suara mayoritas, Pancasila menggunakan musyawarah",
+      "Demokrasi Pancasila tidak melibatkan rakyat dalam keputusan",
+      "Demokrasi langsung hanya berlaku di Indonesia",
     ],
-    correct: "Mewujudkan kesejahteraan sosial",
+    correct:
+      "Demokrasi langsung mengutamakan suara mayoritas, Pancasila menggunakan musyawarah",
   },
   {
     question:
-      "Dalam konteks Pancasila, persatuan dan kesatuan bangsa diartikan sebagai",
+      "Apa yang menjadi kendala besar dalam penerapan demokrasi berkeadaban di Indonesia menurut materi?",
     options: [
-      "Menjaga keragaman",
-      "Mengabaikan perbedaan",
-      "Mengutamakan konflik",
-      "Mempromosikan diskriminasi",
+      "Kurangnya partisipasi warga negara dalam politik",
+      "Liberalisme dan sekularisme yang mengancam nilai Pancasila",
+      "Tingginya biaya kampanye politik",
+      "Pengaruh budaya global dalam sistem pendidikan",
     ],
-    correct: "Menjaga keragaman",
-  },
-  {
-    question: "Pancasila sebagai dasar negara mengatur hubungan antara",
-    options: [
-      "Rakyat dan pemimpin",
-      "Individu dan komunitas",
-      "Agama dan negara",
-      "Semua pilihan di atas",
-    ],
-    correct: "Semua pilihan di atas",
+    correct: "Liberalisme dan sekularisme yang mengancam nilai Pancasila",
   },
 ];
 
@@ -196,7 +183,8 @@ const displayQuizResult = () => {
   quizResult.innerHTML = "";
 
   const resultHeading = document.createElement("h2");
-  resultHeading.innerHTML = `You have scored ${score} out of ${MAX_QUESTIONS}.`;
+  resultHeading.innerHTML = `Kamu mencetak ${score} dari ${MAX_QUESTIONS} pertanyaan!`;
+
   quizResult.appendChild(resultHeading);
 
   for (let i = 0; i < MAX_QUESTIONS; i++) {
@@ -215,8 +203,10 @@ const displayQuizResult = () => {
     resultItem.innerHTML = `<div class="question">Question ${i + 1}: ${
       quizData[i].question
     }</div>
-    <div class="user-answer">Your answer: ${userAnswer || "Not Answered"}</div>
-    <div class="correct-answer">Correct answer: ${correctAnswer}</div>`;
+                        <div class="user-answer">Your answer: ${
+                          userAnswer || "Not Answered"
+                        }</div>
+                        <div class="correct-answer">Correct answer: ${correctAnswer}</div>`;
 
     quizResult.appendChild(resultItem);
   }

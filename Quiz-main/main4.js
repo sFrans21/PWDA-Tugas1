@@ -1,94 +1,75 @@
 let quizData = [
   {
-    question: "Apa makna dari Pancasila sebagai dasar negara?",
+    question:
+      "Apa makna dari identitas nasional menurut konsep yang disampaikan dalam materi?",
     options: [
-      "Ideologi tunggal",
-      "Landasan etika dan moral",
-      "Sumber kekuasaan",
-      "Pedoman hidup masyarakat",
+      "Identitas kelompok yang melekat pada setiap individu",
+      "Identitas yang dibentuk berdasarkan wilayah geografis",
+      "Ciri khas yang mengikat masyarakat sebagai satu bangsa",
+      "Tanda untuk membedakan antara kelompok lokal dan internasional",
     ],
-    correct: "Landasan etika dan moral",
+    correct: "Ciri khas yang mengikat masyarakat sebagai satu bangsa",
   },
   {
     question:
-      "Prinsip ketuhanan yang maha esa dalam Pancasila menekankan pada?",
+      "Faktor manakah yang dianggap penting dalam pembentukan identitas nasional Indonesia?",
     options: [
-      "Kebebasan beragama",
-      "Keberagaman agama",
-      "Pengakuan terhadap Tuhan yang satu",
-      "Penolakan terhadap agama",
+      "Kehendak bersama untuk bersatu",
+      "Keunggulan ekonomi suatu wilayah",
+      "Pengaruh budaya luar yang kuat",
+      "Teknologi informasi yang berkembang pesat",
     ],
-    correct: "Pengakuan terhadap Tuhan yang satu",
+    correct: "Kehendak bersama untuk bersatu",
   },
   {
     question:
-      "Sila kedua Pancasila, yaitu Kemanusiaan yang Adil dan Beradab, menekankan pentingnya",
-    options: [
-      "Keadilan sosial",
-      "Hak asasi manusia",
-      "Persatuan bangsa",
-      "Pendidikan untuk semua",
-    ],
-    correct: "Hak asasi manusia",
-  },
-  {
-    question: "Salah satu tujuan Pancasila adalah untuk",
-    options: [
-      "Menciptakan konflik antaragama",
-      "Memperkuat identitas nasional",
-      "Menghapuskan budaya lokal",
-      "Mewujudkan masyarakat sekuler",
-    ],
-    correct: "Memperkuat identitas nasional",
+      "Siapakah tokoh yang mendefinisikan bangsa sebagai persatuan karakter karena persatuan nasib?",
+    options: ["Ernest Renan", "Otto Bauer", "Mochtar Lubis", "Bung Karno"],
+    correct: "Otto Bauer",
   },
   {
     question:
-      "Sila keempat Pancasila, Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan dalam Permusyawaratan/Perwakilan, menekankan pentingnya",
+      "Mengapa 'Pancasila' disebut sebagai bagian dari identitas nasional Indonesia?",
     options: [
-      "Demokrasi langsung",
-      "Keterlibatan masyarakat",
-      "Pemerintahan otoriter",
-      "Pemimpin yang kuat",
+      "Karena disepakati oleh pemimpin bangsa",
+      "Sebagai dasar negara dan falsafah hidup bangsa",
+      "Sebagai pedoman teknis dalam pemerintahan",
+      "Karena menjadi alat politik yang kuat",
     ],
-    correct: "Keterlibatan masyarakat",
+    correct: "Sebagai dasar negara dan falsafah hidup bangsa",
   },
   {
     question:
-      "Sila pertama Pancasila, Ketuhanan yang Maha Esa, mencerminkan sikap",
-    options: ["Materialistis", "Spiritual", "Agnostik", "Atheis"],
-    correct: "Spiritual",
+      "Menurut konsep ‘Manusia Indonesia Berkualitas,’ apa yang dimaksud dengan ‘pekerja pemikir’?",
+    options: [
+      "Individu yang memiliki keahlian teknis tinggi",
+      "Orang yang mampu berpikir kritis dan kreatif",
+      "Pekerja yang ahli di bidang fisik",
+      "Orang yang bekerja tanpa bantuan teknologi",
+    ],
+    correct: "Orang yang mampu berpikir kritis dan kreatif",
   },
   {
     question:
-      "Pancasila sebagai pandangan hidup bangsa Indonesia berfungsi untuk",
+      "Apakah tujuan dari perubahan mindset dalam masyarakat Indonesia, seperti 'bergantung' menjadi 'mandiri'?",
     options: [
-      "Membatasi kebebasan individu",
-      "Mewujudkan kesejahteraan sosial",
-      "Menghapuskan perbedaan budaya",
-      "Menjaga kestabilan politik",
+      "Mengurangi ketergantungan pada sumber daya alam",
+      "Mendorong masyarakat untuk berwirausaha",
+      "Meningkatkan kualitas pendidikan nasional",
+      "Menciptakan individu yang berdaya dan mandiri",
     ],
-    correct: "Mewujudkan kesejahteraan sosial",
+    correct: "Menciptakan individu yang berdaya dan mandiri",
   },
   {
     question:
-      "Dalam konteks Pancasila, persatuan dan kesatuan bangsa diartikan sebagai",
+      "Apa urgensi dari integrasi nasional dalam konteks Indonesia saat ini?",
     options: [
-      "Menjaga keragaman",
-      "Mengabaikan perbedaan",
-      "Mengutamakan konflik",
-      "Mempromosikan diskriminasi",
+      "Memperkuat posisi politik di kawasan Asia",
+      "Menjaga eksistensi dan kedaulatan negara",
+      "Menarik lebih banyak investor asing",
+      "Menyebarkan budaya nasional ke dunia internasional",
     ],
-    correct: "Menjaga keragaman",
-  },
-  {
-    question: "Pancasila sebagai dasar negara mengatur hubungan antara",
-    options: [
-      "Rakyat dan pemimpin",
-      "Individu dan komunitas",
-      "Agama dan negara",
-      "Semua pilihan di atas",
-    ],
-    correct: "Semua pilihan di atas",
+    correct: "Menjaga eksistensi dan kedaulatan negara",
   },
 ];
 
@@ -196,7 +177,8 @@ const displayQuizResult = () => {
   quizResult.innerHTML = "";
 
   const resultHeading = document.createElement("h2");
-  resultHeading.innerHTML = `You have scored ${score} out of ${MAX_QUESTIONS}.`;
+  resultHeading.innerHTML = `Kamu mencetak ${score} dari ${MAX_QUESTIONS} pertanyaan!`;
+
   quizResult.appendChild(resultHeading);
 
   for (let i = 0; i < MAX_QUESTIONS; i++) {
@@ -215,8 +197,10 @@ const displayQuizResult = () => {
     resultItem.innerHTML = `<div class="question">Question ${i + 1}: ${
       quizData[i].question
     }</div>
-    <div class="user-answer">Your answer: ${userAnswer || "Not Answered"}</div>
-    <div class="correct-answer">Correct answer: ${correctAnswer}</div>`;
+                <div class="user-answer">Your answer: ${
+                  userAnswer || "Not Answered"
+                }</div>
+                <div class="correct-answer">Correct answer: ${correctAnswer}</div>`;
 
     quizResult.appendChild(resultItem);
   }

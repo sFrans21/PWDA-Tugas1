@@ -1,94 +1,74 @@
 let quizData = [
   {
-    question: "Apa makna dari Pancasila sebagai dasar negara?",
+    question: "Apa tujuan dari filsafat menurut pandangan Descartes?",
     options: [
-      "Ideologi tunggal",
-      "Landasan etika dan moral",
-      "Sumber kekuasaan",
-      "Pedoman hidup masyarakat",
+      "Untuk mengkritik ilmu pengetahuan",
+      "Untuk menemukan kebenaran absolut",
+      "Untuk memahami keberadaan manusia",
+      "Untuk menjadi dasar negara",
     ],
-    correct: "Landasan etika dan moral",
+    correct: "Untuk memahami keberadaan manusia",
+  },
+  {
+    question: "Apa arti dari nilai praksis dalam ideologi Pancasila?",
+    options: [
+      "Nilai-nilai dasar yang tidak berubah",
+      "Pelaksanaan nilai-nilai instrumental dalam kehidupan nyata",
+      "Nilai-nilai yang hanya berfungsi sementara",
+      "Nilai yang berlaku di masa lalu",
+    ],
+    correct: "Pelaksanaan nilai-nilai instrumental dalam kehidupan nyata",
+  },
+  {
+    question: "Menurut pandangan ideologi integralistik, negara adalah…",
+    options: [
+      "Kesatuan yang terdiri dari golongan yang terpisah",
+      "Kumpulan individu tanpa keterkaitan",
+      "Suatu susunan masyarakat yang integral dan organis",
+      "Kumpulan aturan yang bersifat individualistik",
+    ],
+    correct: "Suatu susunan masyarakat yang integral dan organis",
+  },
+  {
+    question: "Apa yang dimaksud dengan ideologi terbuka?",
+    options: [
+      "Ideologi yang dapat digantikan",
+      "Ideologi yang tetap, tetapi fleksibel dalam penerapannya",
+      "Ideologi yang bebas berubah sesuai kebutuhan",
+      "Ideologi yang diambil dari negara lain",
+    ],
+    correct: "Kelangkaan komoditas tertentu",
   },
   {
     question:
-      "Prinsip ketuhanan yang maha esa dalam Pancasila menekankan pada?",
+      "Apa yang menjadi salah satu batasan bagi Pancasila sebagai ideologi terbuka?",
     options: [
-      "Kebebasan beragama",
-      "Keberagaman agama",
-      "Pengakuan terhadap Tuhan yang satu",
-      "Penolakan terhadap agama",
+      "Mengikuti semua perubahan global",
+      "Penerimaan terhadap ideologi komunis",
+      "Menghindari norma baru tanpa konsensus",
+      "Menghapus nilai dasar Pancasila",
     ],
-    correct: "Pengakuan terhadap Tuhan yang satu",
+    correct: "Menghindari norma baru tanpa konsensus",
   },
   {
-    question:
-      "Sila kedua Pancasila, yaitu Kemanusiaan yang Adil dan Beradab, menekankan pentingnya",
+    question: "Bagaimana Pancasila berfungsi sebagai ideologi negara?",
     options: [
-      "Keadilan sosial",
-      "Hak asasi manusia",
-      "Persatuan bangsa",
-      "Pendidikan untuk semua",
+      "Sebagai perangkat hukum yang mengikat secara internasional",
+      "Sebagai cita-cita yang tidak boleh diubah",
+      "Sebagai pedoman yang menyatukan langkah bangsa",
+      "Sebagai aturan politik tertinggi",
     ],
-    correct: "Hak asasi manusia",
+    correct: "Sebagai pedoman yang menyatukan langkah bangsa",
   },
   {
-    question: "Salah satu tujuan Pancasila adalah untuk",
+    question: "Apa dasar dari kajian aksiologi Pancasila?",
     options: [
-      "Menciptakan konflik antaragama",
-      "Memperkuat identitas nasional",
-      "Menghapuskan budaya lokal",
-      "Mewujudkan masyarakat sekuler",
+      "Nilai kebebasan mutlak",
+      "Hakikat manusia dalam masyarakat",
+      "Manfaat praktis dari nilai-nilai Pancasila",
+      "Kebenaran filosofis absolut",
     ],
-    correct: "Memperkuat identitas nasional",
-  },
-  {
-    question:
-      "Sila keempat Pancasila, Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan dalam Permusyawaratan/Perwakilan, menekankan pentingnya",
-    options: [
-      "Demokrasi langsung",
-      "Keterlibatan masyarakat",
-      "Pemerintahan otoriter",
-      "Pemimpin yang kuat",
-    ],
-    correct: "Keterlibatan masyarakat",
-  },
-  {
-    question:
-      "Sila pertama Pancasila, Ketuhanan yang Maha Esa, mencerminkan sikap",
-    options: ["Materialistis", "Spiritual", "Agnostik", "Atheis"],
-    correct: "Spiritual",
-  },
-  {
-    question:
-      "Pancasila sebagai pandangan hidup bangsa Indonesia berfungsi untuk",
-    options: [
-      "Membatasi kebebasan individu",
-      "Mewujudkan kesejahteraan sosial",
-      "Menghapuskan perbedaan budaya",
-      "Menjaga kestabilan politik",
-    ],
-    correct: "Mewujudkan kesejahteraan sosial",
-  },
-  {
-    question:
-      "Dalam konteks Pancasila, persatuan dan kesatuan bangsa diartikan sebagai",
-    options: [
-      "Menjaga keragaman",
-      "Mengabaikan perbedaan",
-      "Mengutamakan konflik",
-      "Mempromosikan diskriminasi",
-    ],
-    correct: "Menjaga keragaman",
-  },
-  {
-    question: "Pancasila sebagai dasar negara mengatur hubungan antara",
-    options: [
-      "Rakyat dan pemimpin",
-      "Individu dan komunitas",
-      "Agama dan negara",
-      "Semua pilihan di atas",
-    ],
-    correct: "Semua pilihan di atas",
+    correct: "Manfaat praktis dari nilai-nilai Pancasila",
   },
 ];
 
@@ -196,7 +176,8 @@ const displayQuizResult = () => {
   quizResult.innerHTML = "";
 
   const resultHeading = document.createElement("h2");
-  resultHeading.innerHTML = `You have scored ${score} out of ${MAX_QUESTIONS}.`;
+  resultHeading.innerHTML = `Kamu mencetak ${score} dari ${MAX_QUESTIONS} pertanyaan!`;
+
   quizResult.appendChild(resultHeading);
 
   for (let i = 0; i < MAX_QUESTIONS; i++) {
@@ -215,8 +196,10 @@ const displayQuizResult = () => {
     resultItem.innerHTML = `<div class="question">Question ${i + 1}: ${
       quizData[i].question
     }</div>
-    <div class="user-answer">Your answer: ${userAnswer || "Not Answered"}</div>
-    <div class="correct-answer">Correct answer: ${correctAnswer}</div>`;
+            <div class="user-answer">Your answer: ${
+              userAnswer || "Not Answered"
+            }</div>
+            <div class="correct-answer">Correct answer: ${correctAnswer}</div>`;
 
     quizResult.appendChild(resultItem);
   }

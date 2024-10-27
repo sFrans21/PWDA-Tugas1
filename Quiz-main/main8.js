@@ -1,94 +1,82 @@
 let quizData = [
   {
-    question: "Apa makna dari Pancasila sebagai dasar negara?",
+    question:
+      "Menurut konsep John Locke, bagaimana hubungan antara rakyat dan penguasa?",
     options: [
-      "Ideologi tunggal",
-      "Landasan etika dan moral",
-      "Sumber kekuasaan",
-      "Pedoman hidup masyarakat",
+      "Rakyat menyerahkan semua hak kepada penguasa",
+      "Rakyat mempertahankan hak kodrati mereka yang dilindungi konstitusi",
+      "Penguasa memiliki hak untuk menafsirkan hukum secara sepihak",
+      "Rakyat dan penguasa berhak menegosiasikan kembali perjanjian setiap tahun",
     ],
-    correct: "Landasan etika dan moral",
+    correct:
+      "Rakyat mempertahankan hak kodrati mereka yang dilindungi konstitusi",
   },
   {
     question:
-      "Prinsip ketuhanan yang maha esa dalam Pancasila menekankan pada?",
+      "Apa yang menjadi kewajiban utama pemerintah dalam kontrak sosial menurut pandangan Jean Jacques Rousseau?",
     options: [
-      "Kebebasan beragama",
-      "Keberagaman agama",
-      "Pengakuan terhadap Tuhan yang satu",
-      "Penolakan terhadap agama",
+      "Menjalankan perintah rakyat melalui konstitusi negara",
+      "Mengutamakan keamanan nasional di atas kesejahteraan rakyat",
+      "Menjamin hak istimewa bagi kelompok mayoritas",
+      "Membuat peraturan tanpa perlu persetujuan rakyat",
     ],
-    correct: "Pengakuan terhadap Tuhan yang satu",
+    correct: "Menjalankan perintah rakyat melalui konstitusi negara",
   },
   {
     question:
-      "Sila kedua Pancasila, yaitu Kemanusiaan yang Adil dan Beradab, menekankan pentingnya",
+      "Menurut UUD NRI 1945, siapa yang diakui sebagai warga negara Indonesia?",
     options: [
-      "Keadilan sosial",
-      "Hak asasi manusia",
-      "Persatuan bangsa",
-      "Pendidikan untuk semua",
+      "Orang yang lahir di Indonesia tanpa pengecualian",
+      "Orang yang menjadi anggota komunitas internasional",
+      "Bangsa Indonesia asli dan orang yang disahkan UU",
+      "Individu yang tinggal di Indonesia lebih dari 5 tahun",
     ],
-    correct: "Hak asasi manusia",
-  },
-  {
-    question: "Salah satu tujuan Pancasila adalah untuk",
-    options: [
-      "Menciptakan konflik antaragama",
-      "Memperkuat identitas nasional",
-      "Menghapuskan budaya lokal",
-      "Mewujudkan masyarakat sekuler",
-    ],
-    correct: "Memperkuat identitas nasional",
+    correct: "Bangsa Indonesia asli dan orang yang disahkan UU",
   },
   {
     question:
-      "Sila keempat Pancasila, Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan dalam Permusyawaratan/Perwakilan, menekankan pentingnya",
+      "Apa yang menjadi dasar utama dari hak asasi manusia dalam pandangan Indonesia?",
     options: [
-      "Demokrasi langsung",
-      "Keterlibatan masyarakat",
-      "Pemerintahan otoriter",
-      "Pemimpin yang kuat",
+      "Hak asasi manusia adalah kebebasan tanpa batas",
+      "Hak asasi manusia sebagai anugerah dari Tuhan Yang Maha Esa",
+      "Hak asasi manusia terbatas pada hak sipil dan politik",
+      "Hak asasi manusia berfokus pada keuntungan ekonomi",
     ],
-    correct: "Keterlibatan masyarakat",
+    correct: "Hak asasi manusia sebagai anugerah dari Tuhan Yang Maha Esa",
   },
   {
     question:
-      "Sila pertama Pancasila, Ketuhanan yang Maha Esa, mencerminkan sikap",
-    options: ["Materialistis", "Spiritual", "Agnostik", "Atheis"],
-    correct: "Spiritual",
+      "Dalam konteks UUD NRI 1945, apa peran negara terkait hak asasi manusia?",
+    options: [
+      "Membatasi hak-hak sipil untuk keamanan negara",
+      "Memberikan hak penuh bagi individu tanpa batasan",
+      "Melindungi dan menghormati hak asasi manusia",
+      "Memastikan kebebasan ekonomi di atas hak lainnya",
+    ],
+    correct: "Melindungi dan menghormati hak asasi manusia",
   },
   {
     question:
-      "Pancasila sebagai pandangan hidup bangsa Indonesia berfungsi untuk",
+      "Bagaimana pandangan nasional Indonesia terhadap hak asasi manusia dalam menghadapi globalisasi?",
     options: [
-      "Membatasi kebebasan individu",
-      "Mewujudkan kesejahteraan sosial",
-      "Menghapuskan perbedaan budaya",
-      "Menjaga kestabilan politik",
+      "Indonesia mendukung hak asasi secara universal tanpa kecuali",
+      "Indonesia menerapkan hak asasi yang berlandaskan Pancasila dan UUD",
+      "Hak asasi manusia dianggap hanya sebagai konsep barat",
+      "Hak asasi manusia selalu diprioritaskan dalam setiap kebijakan",
     ],
-    correct: "Mewujudkan kesejahteraan sosial",
+    correct:
+      "Indonesia menerapkan hak asasi yang berlandaskan Pancasila dan UUD",
   },
   {
     question:
-      "Dalam konteks Pancasila, persatuan dan kesatuan bangsa diartikan sebagai",
+      "Apa yang dimaksud dengan 'ius soli' dalam konteks kewarganegaraan Indonesia?",
     options: [
-      "Menjaga keragaman",
-      "Mengabaikan perbedaan",
-      "Mengutamakan konflik",
-      "Mempromosikan diskriminasi",
+      "Asas yang berdasarkan pada garis keturunan",
+      "Asas kewarganegaraan berdasarkan tempat kelahiran",
+      "Asas kewarganegaraan yang diakui secara internasional",
+      "Asas untuk memberikan kewarganegaraan hanya pada pria",
     ],
-    correct: "Menjaga keragaman",
-  },
-  {
-    question: "Pancasila sebagai dasar negara mengatur hubungan antara",
-    options: [
-      "Rakyat dan pemimpin",
-      "Individu dan komunitas",
-      "Agama dan negara",
-      "Semua pilihan di atas",
-    ],
-    correct: "Semua pilihan di atas",
+    correct: "Asas kewarganegaraan berdasarkan tempat kelahiran",
   },
 ];
 
@@ -196,7 +184,8 @@ const displayQuizResult = () => {
   quizResult.innerHTML = "";
 
   const resultHeading = document.createElement("h2");
-  resultHeading.innerHTML = `You have scored ${score} out of ${MAX_QUESTIONS}.`;
+  resultHeading.innerHTML = `Kamu mencetak ${score} dari ${MAX_QUESTIONS} pertanyaan!`;
+
   quizResult.appendChild(resultHeading);
 
   for (let i = 0; i < MAX_QUESTIONS; i++) {
@@ -215,8 +204,10 @@ const displayQuizResult = () => {
     resultItem.innerHTML = `<div class="question">Question ${i + 1}: ${
       quizData[i].question
     }</div>
-    <div class="user-answer">Your answer: ${userAnswer || "Not Answered"}</div>
-    <div class="correct-answer">Correct answer: ${correctAnswer}</div>`;
+                            <div class="user-answer">Your answer: ${
+                              userAnswer || "Not Answered"
+                            }</div>
+                            <div class="correct-answer">Correct answer: ${correctAnswer}</div>`;
 
     quizResult.appendChild(resultItem);
   }

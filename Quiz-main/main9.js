@@ -1,94 +1,58 @@
 let quizData = [
   {
-    question: "Apa makna dari Pancasila sebagai dasar negara?",
+    question:
+      "Apa yang menjadi faktor utama dalam menentukan kepentingan nasional suatu negara?",
     options: [
-      "Ideologi tunggal",
-      "Landasan etika dan moral",
-      "Sumber kekuasaan",
-      "Pedoman hidup masyarakat",
+      "Kepentingan ekonomi internasional",
+      "Keamanan dan kedaulatan negara",
+      "Kepentingan individu dalam pemerintahan",
+      "Keunggulan budaya nasional atas negara lain",
     ],
-    correct: "Landasan etika dan moral",
+    correct: "Keamanan dan kedaulatan negara",
   },
   {
     question:
-      "Prinsip ketuhanan yang maha esa dalam Pancasila menekankan pada?",
+      "Bagaimana konsep kepentingan nasional didefinisikan dalam konteks politik luar negeri?",
     options: [
-      "Kebebasan beragama",
-      "Keberagaman agama",
-      "Pengakuan terhadap Tuhan yang satu",
-      "Penolakan terhadap agama",
+      "Sebagai kebijakan yang hanya menguntungkan negara sendiri",
+      "Sebagai prioritas untuk mendominasi negara lain",
+      "Sebagai strategi yang menjaga kedaulatan dengan kerjasama internasional",
+      "Sebagai bentuk aliansi ekonomi tanpa pertimbangan politik",
     ],
-    correct: "Pengakuan terhadap Tuhan yang satu",
+    correct:
+      "Sebagai strategi yang menjaga kedaulatan dengan kerjasama internasional",
+  },
+  {
+    question: "Apa yang menjadi tujuan utama kepentingan nasional Indonesia?",
+    options: [
+      "Mengamankan seluruh sumber daya dari negara asing",
+      "Menjadi negara adidaya dalam kawasan Asia Tenggara",
+      "Melindungi kemandirian dan mendorong kesejahteraan rakyat",
+      "Menjadi pusat ekonomi terbesar di dunia",
+    ],
+    correct: "Melindungi kemandirian dan mendorong kesejahteraan rakyat",
   },
   {
     question:
-      "Sila kedua Pancasila, yaitu Kemanusiaan yang Adil dan Beradab, menekankan pentingnya",
+      "Mengapa kerjasama internasional penting dalam mencapai kepentingan nasional Indonesia?",
     options: [
-      "Keadilan sosial",
-      "Hak asasi manusia",
-      "Persatuan bangsa",
-      "Pendidikan untuk semua",
+      "Untuk menghindari semua bentuk aliansi militer",
+      "Untuk mendukung keamanan global dan stabilitas regional",
+      "Agar dapat mengontrol perdagangan internasional",
+      "Untuk memastikan dominasi dalam pasar regional",
     ],
-    correct: "Hak asasi manusia",
-  },
-  {
-    question: "Salah satu tujuan Pancasila adalah untuk",
-    options: [
-      "Menciptakan konflik antaragama",
-      "Memperkuat identitas nasional",
-      "Menghapuskan budaya lokal",
-      "Mewujudkan masyarakat sekuler",
-    ],
-    correct: "Memperkuat identitas nasional",
+    correct: "Untuk mendukung keamanan global dan stabilitas regional",
   },
   {
     question:
-      "Sila keempat Pancasila, Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan dalam Permusyawaratan/Perwakilan, menekankan pentingnya",
+      "Bagaimana kepentingan nasional diimplementasikan dalam kebijakan domestik Indonesia?",
     options: [
-      "Demokrasi langsung",
-      "Keterlibatan masyarakat",
-      "Pemerintahan otoriter",
-      "Pemimpin yang kuat",
+      "Dengan mengurangi ketergantungan terhadap impor",
+      "Dengan meningkatkan kerjasama dengan negara maju",
+      "Dengan menerapkan prinsip kemandirian dan keadilan sosial",
+      "Dengan mengadopsi kebijakan proteksionisme yang ketat",
     ],
-    correct: "Keterlibatan masyarakat",
-  },
-  {
-    question:
-      "Sila pertama Pancasila, Ketuhanan yang Maha Esa, mencerminkan sikap",
-    options: ["Materialistis", "Spiritual", "Agnostik", "Atheis"],
-    correct: "Spiritual",
-  },
-  {
-    question:
-      "Pancasila sebagai pandangan hidup bangsa Indonesia berfungsi untuk",
-    options: [
-      "Membatasi kebebasan individu",
-      "Mewujudkan kesejahteraan sosial",
-      "Menghapuskan perbedaan budaya",
-      "Menjaga kestabilan politik",
-    ],
-    correct: "Mewujudkan kesejahteraan sosial",
-  },
-  {
-    question:
-      "Dalam konteks Pancasila, persatuan dan kesatuan bangsa diartikan sebagai",
-    options: [
-      "Menjaga keragaman",
-      "Mengabaikan perbedaan",
-      "Mengutamakan konflik",
-      "Mempromosikan diskriminasi",
-    ],
-    correct: "Menjaga keragaman",
-  },
-  {
-    question: "Pancasila sebagai dasar negara mengatur hubungan antara",
-    options: [
-      "Rakyat dan pemimpin",
-      "Individu dan komunitas",
-      "Agama dan negara",
-      "Semua pilihan di atas",
-    ],
-    correct: "Semua pilihan di atas",
+    correct: "Dengan menerapkan prinsip kemandirian dan keadilan sosial",
   },
 ];
 
@@ -196,7 +160,8 @@ const displayQuizResult = () => {
   quizResult.innerHTML = "";
 
   const resultHeading = document.createElement("h2");
-  resultHeading.innerHTML = `You have scored ${score} out of ${MAX_QUESTIONS}.`;
+  resultHeading.innerHTML = `Kamu mencetak ${score} dari ${MAX_QUESTIONS} pertanyaan!`;
+
   quizResult.appendChild(resultHeading);
 
   for (let i = 0; i < MAX_QUESTIONS; i++) {
@@ -215,8 +180,10 @@ const displayQuizResult = () => {
     resultItem.innerHTML = `<div class="question">Question ${i + 1}: ${
       quizData[i].question
     }</div>
-    <div class="user-answer">Your answer: ${userAnswer || "Not Answered"}</div>
-    <div class="correct-answer">Correct answer: ${correctAnswer}</div>`;
+                            <div class="user-answer">Your answer: ${
+                              userAnswer || "Not Answered"
+                            }</div>
+                            <div class="correct-answer">Correct answer: ${correctAnswer}</div>`;
 
     quizResult.appendChild(resultItem);
   }
