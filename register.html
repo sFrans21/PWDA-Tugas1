@@ -26,6 +26,7 @@
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="css/style.css" />
+    <script type="module" src="/js/register.js" defer></script>
   </head>
   <body>
     <header class="header">
@@ -100,6 +101,7 @@
           type="text"
           name="name"
           placeholder="enter your name"
+          id="name"
           required
           maxlength="50"
           class="box"
@@ -109,6 +111,7 @@
           type="email"
           name="email"
           placeholder="enter your email"
+          id="email"
           required
           maxlength="50"
           class="box"
@@ -118,26 +121,34 @@
           type="password"
           name="pass"
           placeholder="enter your password"
+          id="password"
           required
           maxlength="20"
           class="box"
         />
-        <p>confirm password <span>*</span></p>
+        <!-- <p>confirm password <span>*</span></p>
         <input
           type="password"
           name="c_pass"
           placeholder="confirm your password"
+          id="c_password"
           required
           maxlength="20"
           class="box"
         />
         <p>select profile <span>*</span></p>
-        <input type="file" accept="image/*" required class="box" />
-        <input type="submit" value="register new" name="submit" class="btn" />
+        <input type="file" accept="image/*" required class="box" /> -->
+        <input
+          id="submit"
+          type="submit"
+          value="register new"
+          name="submit"
+          class="btn"
+        />
       </form>
     </section>
 
     <!-- custom js file link  -->
-    <script src="js/script.js"></script>
+    <script src="/js/register.js"></script>
   </body>
 </html>

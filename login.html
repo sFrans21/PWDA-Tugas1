@@ -20,6 +20,7 @@
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="css/style.css" />
+    <script type="module" src="/js/login.js" defer></script>
   </head>
   <body>
     <header class="header">
@@ -96,6 +97,7 @@
           name="email"
           placeholder="enter your email"
           required
+          id="email"
           maxlength="50"
           class="box"
         />
@@ -105,14 +107,21 @@
           name="pass"
           placeholder="enter your password"
           required
+          id="password"
           maxlength="20"
           class="box"
         />
-        <input type="submit" value="login new" name="submit" class="btn" />
+        <input
+          id="login"
+          type="submit"
+          value="login new"
+          name="submit"
+          class="btn"
+        />
       </form>
     </section>
 
     <!-- custom js file link  -->
-    <script src="js/script.js"></script>
+    <script src="/js/login.js"></script>
   </body>
 </html>
