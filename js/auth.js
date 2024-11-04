@@ -49,3 +49,17 @@ onAuthStateChanged(auth, (user) => {
     console.log("User ID not found in local storage");
   }
 });
+
+//LOGOUT
+const logoutButton = document.getElementById("signout");
+
+logoutButton.addEventListener("click", () => {
+  localStorage.removeItem("loggedInUserId");
+  signOut(auth)
+    .then(() => {
+      window.location.href = "index.html";
+    })
+    .catch((error) => {
+      console.error("Error signing out:", error);
+    });
+});

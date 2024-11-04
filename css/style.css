@@ -247,6 +247,10 @@ section {
   display: none;
 }
 
+#signout {
+  background-color: #8e0000;
+}
+
 .side-bar {
   position: fixed;
   top: 0;
@@ -262,6 +266,10 @@ section {
   text-align: right;
   padding: 2rem;
   display: none;
+}
+
+#wae {
+  position: relative;
 }
 
 .side-bar #close-btn i {
@@ -955,8 +963,13 @@ section {
 
 .user-profile .info .user {
   text-align: center;
-  margin-bottom: 2rem;
+  /* margin-bottom: 0.3rem; */
   padding: 1rem;
+}
+
+.user-profile .info .signout {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .user-profile .info .user img {
@@ -1116,6 +1129,12 @@ section {
   padding: 2rem;
   width: 50rem;
 }
+/* .form-container .switchto {
+  background-color: var(--white);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  width: 50rem;
+} */
 
 .form-container form h3 {
   font-size: 2.5rem;
@@ -1129,7 +1148,9 @@ section {
   color: var(--light-color);
   padding-top: 1rem;
 }
-
+#bord {
+  text-align: center;
+}
 .form-container form p span {
   color: var(--red);
 }
