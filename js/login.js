@@ -6,6 +6,13 @@ import {
   getAuth,
   signInWithEmailAndPassword,
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+
+import {
+  getFirestore,
+  setDoc,
+  doc,
+} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyD0XlXERSPwYVn7RGViRD7oBr9dLmumygQ",
@@ -18,7 +25,8 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+const auth = getAuth();
+const db = getFirestore();
 
 //login button
 const login = document.getElementById("login");
@@ -31,14 +39,17 @@ login.addEventListener("click", (event) => {
 
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Signed up
+      // showMessage("berhasil login", "signInmessage");
+      alert("Berhasil Login!");
+      const user = userCredential.user;
+      localStorage.setItem("loggedInUserId", user.uid); // Signed up
       // const user = userCredential.user;
       // alert("Membuat akun...");
       // window.location.href = "index.html";
       // ...
-      alert("Berhasil Login!");
-      const user = userCredential.user;
-      localStorage.setItem("loggedInUserId", user.uid);
+      // alert("Berhasil Login!");
+      // const user = userCredential.user;
+      // localStorage.setItem("loggedInUserId", user.uid);
       window.location.href = "index.html";
     })
     .catch((error) => {

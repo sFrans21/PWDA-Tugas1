@@ -25,6 +25,8 @@
     />
     <!-- custom css file link  -->
     <link rel="stylesheet" href="css/style.css" />
+    <script type="module" src="js/auth.js"></script>
+
   </head>
   <body>
     <header class="header">
@@ -51,7 +53,12 @@
 
         <div class="profile">
           <img src="images/pic-1.jpg" class="image" alt="" />
-          <h3 class="name">Samuel Franciscus</h3>
+          <h3 class="name">
+            <div><span id="loggedUserName"></span></div>
+            <div style="font-size: 15px">
+              <span id="loggedUserEmail"></span>
+            </div>
+          </h3>
           <p class="role">STEI - 19624567</p>
           <a href="profile.html" class="btn">view profile</a>
           <div class="flex-btn">
@@ -69,7 +76,12 @@
 
       <div class="profile">
         <img src="images/pic-1.jpg" class="image" alt="" />
-        <h3 class="name">Samuel Franciscus</h3>
+        <h3 class="name">
+          <div><span id="loggedUserName"></span></div>
+          <div style="font-size: 15px">
+            <span id="loggedUserEmail"></span>
+          </div>
+        </h3>
         <p class="role">STEI - 19624567</p>
         <a href="profile.html" class="btn">view profile</a>
       </div>

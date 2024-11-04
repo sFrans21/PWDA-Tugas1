@@ -5,7 +5,13 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebas
 import {
   getAuth,
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+import {
+  getFirestore,
+  setDoc,
+  doc,
+} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyD0XlXERSPwYVn7RGViRD7oBr9dLmumygQ",
@@ -18,23 +24,39 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+// const auth = getAuth(app);
 
-//submit button
+//REGISTER
 const submit = document.getElementById("submit");
 submit.addEventListener("click", function (event) {
   event.preventDefault();
   //input email n pass
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
-
+  const fullName = document.getElementById("name").value;
+  // const lastName = document.getElementById("lasttName").value;
+  const auth = getAuth();
+  const db = getFirestore();
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed up
       const user = userCredential.user;
+      const userData = {
+        email: email,
+        name: fullName,
+      };
       alert("Membuat akun...");
-      window.location.href = "index.html";
-      // ...
+      const docRef = doc(db, "user", user.uid);
+      setDoc(docRef, userData)
+        .then(() => {
+          alert("Berhasil membuat akun");
+          window.location.href = "login.html";
+        })
+        // window.location.href = "login.html";
+        // ...
+        .catch((error) => {
+          console.error("error writing document", error);
+        });
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -42,4 +64,48 @@ submit.addEventListener("click", function (event) {
       alert(errorMessage);
       // ..
     });
+});
+
+//LOGIN
+const login = document.getElementById("login");
+login.addEventListener("click", (event) => {
+  event.preventDefault();
+  //input email n pass
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  const auth = getAuth();
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // showMessage("berhasil login", "signInmessage");
+      alert("Berhasil Login!");
+      const user = userCredential.user;
+      localStorage.setItem("loggedInUserId", user.uid);
+      // Signed up
+      // const user = userCredential.user;
+      // alert("Membuat akun...");
+      // window.location.href = "index.html";
+      // ...
+      // alert("Berhasil Login!");
+      // const user = userCredential.user;
+      // localStorage.setItem("loggedInUserId", user.uid);
+      window.location.href = "index.html";
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert(errorMessage);
+      // ..
+    });
+
+  // try {
+  //   const userCredential = await firebase
+  //     .auth()
+  //     .signInWithEmailAndPassword(email, password);
+  //   const user = userCredential.user;
+  //   alert(`Welcome ${user.email}`);
+  //   // Simpan user ID atau token jika perlu untuk backend
+  // } catch (error) {
+  //   alert("Error: " + error.message);
+  // }
 });

@@ -53,8 +53,14 @@
 
         <div class="profile">
           <img src="images/pic-1.jpg" class="image" alt="" />
-          <h3 class="name">Samuel Franciscus</h3>
+          <h3 class="name">
+            <div><span id="loggedUserName"></span></div>
+          </h3>
+          <div style="color: aliceblue; font-size: 15px">
+            <span id="loggedUserEmail"></span>
+          </div>
           <p class="role">STEI - 19624567</p>
+
           <a href="profile.html" class="btn">view profile</a>
           <div class="flex-btn">
             <a href="login.html" class="option-btn">login</a>
@@ -71,7 +77,12 @@
 
       <div class="profile">
         <img src="images/pic-1.jpg" class="image" alt="" />
-        <h3 class="name">Samuel Franciscus</h3>
+        <h3 class="name">
+          <div><span id="loggedUserName"></span></div>
+          <div style="font-size: 15px">
+            <span id="loggedUserEmail"></span>
+          </div>
+        </h3>
         <p class="role">STEI - 19624567</p>
         <a href="profile.html" class="btn">view profile</a>
       </div>
@@ -100,17 +111,18 @@
         <input
           type="text"
           name="name"
-          placeholder="enter your name"
+          placeholder="masukkan nama lengkapmu"
           id="name"
           required
           maxlength="50"
           class="box"
         />
+
         <p>your email <span>*</span></p>
         <input
           type="email"
           name="email"
-          placeholder="enter your email"
+          placeholder="masukkan alamat emailmu"
           id="email"
           required
           maxlength="50"
@@ -120,7 +132,7 @@
         <input
           type="password"
           name="pass"
-          placeholder="enter your password"
+          placeholder="masukkan passwordmu"
           id="password"
           required
           maxlength="20"
