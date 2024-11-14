@@ -34,16 +34,20 @@ submit.addEventListener("click", function (event) {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
   const fullName = document.getElementById("name").value;
+  const nim = document.getElementById("nim").value;
+  const faculty = document.getElementById("faculty").value;
   // const lastName = document.getElementById("lasttName").value;
   const auth = getAuth();
   const db = getFirestore();
-  createUserWithEmailAndPassword(auth, email, password)
+  createUserWithEmailAndPassword(auth, email, password, nim, faculty)
     .then((userCredential) => {
       // Signed up
       const user = userCredential.user;
       const userData = {
         email: email,
         name: fullName,
+        nim: nim,
+        faculty: faculty,
       };
       alert("Membuat akun...");
       const docRef = doc(db, "user", user.uid);
