@@ -27,7 +27,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
+const firestore = firebase.firestore(); //gatau mana yang dipake ini apa diatas
 
+let userId = "userId123";
+let moduleId = "moduleId456";
 onAuthStateChanged(auth, (user) => {
   const loggedInUserId = localStorage.getItem("loggedInUserId");
   if (loggedInUserId) {
@@ -62,4 +65,67 @@ logoutButton.addEventListener("click", () => {
     .catch((error) => {
       console.error("Error signing out:", error);
     });
+});
+
+const updateLikeDisplay = (count) => {
+  document.getElementById("likeCount").innerText = count;
+  document.getElementById("likeText").innerText = isLiked ? "unlike" : "like";
+};
+
+// Fungsi untuk mengambil jumlah like dari Firestore dan menampilkan
+const getLikeCount = async () => {
+  try {
+    const moduleRef = firestore
+      .collection("users")
+      .doc(userId)
+      .collection("modules")
+      .doc(moduleId);
+    const moduleDoc = await moduleRef.get();
+    if (moduleDoc.exists) {
+      likeCount = moduleDoc.data().likes || 0;
+      isLiked = moduleDoc.data().isLiked || false; // Optional jika ingin simpan status like di Firestore
+      updateLikeDisplay(likeCount);
+    }
+  } catch (error) {
+    console.error("Error mengambil jumlah like:", error);
+  }
+};
+
+// Fungsi untuk menambah jumlah like di Firestore
+const incrementLikes = async () => {
+  await firestore
+    .collection("users")
+    .doc(userId)
+    .collection("modules")
+    .doc(moduleId)
+    .update({
+      likes: firebase.firestore.FieldValue.increment(1),
+    });
+  likeCount += 1;
+  isLiked = true;
+  updateLikeDisplay(likeCount);
+};
+
+// Fungsi untuk mengurangi jumlah like di Firestore
+const decrementLikes = async () => {
+  await firestore
+    .collection("users")
+    .doc(userId)
+    .collection("modules")
+    .doc(moduleId)
+    .update({
+      likes: firebase.firestore.FieldValue.increment(-1),
+    });
+  likeCount -= 1;
+  isLiked = false;
+  updateLikeDisplay(likeCount);
+};
+
+// Event listener untuk tombol like
+document.getElementById("likeButton").addEventListener("click", () => {
+  if (isLiked) {
+    decrementLikes(); // Jika sudah di-like, maka unlike
+  } else {
+    incrementLikes(); // Jika belum di-like, maka like
+  }
 });
