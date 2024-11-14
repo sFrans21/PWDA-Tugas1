@@ -62,3 +62,62 @@ window.onscroll = () => {
     body.classList.remove("active");
   }
 };
+
+// document.querySelector("#like").onclick = () => {
+//   firestore
+//     .collection("users")
+//     .doc(userId)
+//     .collection("modules")
+//     .doc(moduleId)
+//     .set(
+//       {
+//         quizProgress: {
+//           score: score, // Nilai yang diperoleh pengguna
+//           status: status, // Status "finished" atau "not finished"
+//         },
+//       },
+//       { merge: true }
+//     ) // Merge memastikan data lain dalam modul tidak terhapus
+//     .then(() => {
+//       console.log("Progress quiz berhasil disimpan!");
+//     })
+//     .catch((error) => {
+//       console.error("Error menyimpan progress quiz: ", error);
+//     });
+// };
+
+const incrementLikes = (userId, moduleId) => {
+  firestore
+    .collection("users")
+    .doc(userId)
+    .collection("modules")
+    .doc(moduleId)
+    .update({
+      likes: firebase.firestore.FieldValue.increment(1), // Menambah 1 like
+    })
+    .then(() => {
+      console.log("Like berhasil ditambahkan!");
+    })
+    .catch((error) => {
+      console.error("Error menambah like: ", error);
+    });
+};
+
+const decrementLikes = (userId, moduleId) => {
+  firestore
+    .collection("users")
+    .doc(userId)
+    .collection("modules")
+    .doc(moduleId)
+    .update({
+      likes: firebase.firestore.FieldValue.increment(-1), // Mengurangi 1 like
+    })
+    .then(() => {
+      console.log("Like berhasil dikurangi!");
+    })
+    .catch((error) => {
+      console.error("Error mengurangi like: ", error);
+    });
+};
+
+document.querySelector("#like").onclick = decrementLikes(userId, moduleId);
