@@ -104,6 +104,7 @@ let questionNumber = 0;
 let score = 0;
 const MAX_QUESTIONS = 7;
 let timerInterval;
+let status = 0;
 
 const shuffleArray = (array) => {
   return array.slice().sort(() => Math.random() - 0.5);
@@ -139,11 +140,11 @@ const checkAnswer = (e) => {
 const createQuestion = () => {
   clearInterval(timerInterval);
 
-  let secondsLeft = 9;
+  let secondsLeft = 14;
   const timerDisplay = document.querySelector(".quiz-container .timer");
   timerDisplay.classList.remove("danger");
 
-  timerDisplay.textContent = `Time Left: 10 seconds`;
+  timerDisplay.textContent = `Time Left: 15 seconds`;
 
   timerInterval = setInterval(() => {
     timerDisplay.textContent = `Time Left: ${secondsLeft
@@ -182,6 +183,7 @@ const createQuestion = () => {
 const retakeQuiz = () => {
   questionNumber = 0;
   score = 0;
+  status = 0;
   quizData = shuffleArray(quizData);
   resetLocalStorage();
 
@@ -245,3 +247,26 @@ startBtn.addEventListener("click", () => {
   quizContainer.style.display = "block";
   createQuestion();
 });
+
+const saveQuizProgress = (userId, moduleId, score, status) => {
+  firestore
+    .collection("users")
+    .doc(userId)
+    .collection("modules")
+    .doc(moduleId)
+    .set(
+      {
+        quizProgress: {
+          score: score, // Nilai yang diperoleh pengguna
+          status: status, // Status "finished" atau "not finished"
+        },
+      },
+      { merge: true }
+    ) // Merge memastikan data lain dalam modul tidak terhapus
+    .then(() => {
+      console.log("Progress quiz berhasil disimpan!");
+    })
+    .catch((error) => {
+      console.error("Error menyimpan progress quiz: ", error);
+    });
+};

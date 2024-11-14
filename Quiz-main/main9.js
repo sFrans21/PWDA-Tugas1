@@ -212,3 +212,26 @@ startBtn.addEventListener("click", () => {
   quizContainer.style.display = "block";
   createQuestion();
 });
+
+const saveQuizProgress = (userId, moduleId, score, status) => {
+  firestore
+    .collection("users")
+    .doc(userId)
+    .collection("modules")
+    .doc(moduleId)
+    .set(
+      {
+        quizProgress: {
+          score: score, // Nilai yang diperoleh pengguna
+          status: status, // Status "finished" atau "not finished"
+        },
+      },
+      { merge: true }
+    ) // Merge memastikan data lain dalam modul tidak terhapus
+    .then(() => {
+      console.log("Progress quiz berhasil disimpan!");
+    })
+    .catch((error) => {
+      console.error("Error menyimpan progress quiz: ", error);
+    });
+};
