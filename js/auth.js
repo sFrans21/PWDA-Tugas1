@@ -41,6 +41,7 @@ onAuthStateChanged(auth, (user) => {
           const userData = docSnap.data();
           document.getElementById("loggedUserName").innerText = userData.name;
           document.getElementById("loggedUserEmail").innerText = userData.email;
+          document.getElementById("loggedNim").innerText = userData.nim;
         } else {
           console.log("NO DOCUMENT FOUND MATCHING ID");
         }
@@ -67,29 +68,29 @@ logoutButton.addEventListener("click", () => {
     });
 });
 
-const updateLikeDisplay = (count) => {
-  document.getElementById("likeCount").innerText = count;
-  document.getElementById("likeText").innerText = isLiked ? "unlike" : "like";
-};
+// const updateLikeDisplay = (count) => {
+//   document.getElementById("likeCount").innerText = count;
+//   document.getElementById("likeText").innerText = isLiked ? "unlike" : "like";
+// };
 
-// Fungsi untuk mengambil jumlah like dari Firestore dan menampilkan
-const getLikeCount = async () => {
-  try {
-    const moduleRef = firestore
-      .collection("users")
-      .doc(userId)
-      .collection("modules")
-      .doc(moduleId);
-    const moduleDoc = await moduleRef.get();
-    if (moduleDoc.exists) {
-      likeCount = moduleDoc.data().likes || 0;
-      isLiked = moduleDoc.data().isLiked || false; // Optional jika ingin simpan status like di Firestore
-      updateLikeDisplay(likeCount);
-    }
-  } catch (error) {
-    console.error("Error mengambil jumlah like:", error);
-  }
-};
+// // Fungsi untuk mengambil jumlah like dari Firestore dan menampilkan
+// const getLikeCount = async () => {
+//   try {
+//     const moduleRef = firestore
+//       .collection("users")
+//       .doc(userId)
+//       .collection("modules")
+//       .doc(moduleId);
+//     const moduleDoc = await moduleRef.get();
+//     if (moduleDoc.exists) {
+//       likeCount = moduleDoc.data().likes || 0;
+//       isLiked = moduleDoc.data().isLiked || false; // Optional jika ingin simpan status like di Firestore
+//       updateLikeDisplay(likeCount);
+//     }
+//   } catch (error) {
+//     console.error("Error mengambil jumlah like:", error);
+//   }
+// };
 
 // // Fungsi untuk menambah jumlah like di Firestore
 // const incrementLikes = async () => {
