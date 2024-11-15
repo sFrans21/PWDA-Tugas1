@@ -221,45 +221,20 @@ window.addEventListener("load", () => {
   loadModuleLikes(moduleId);
 });
 
-likeButton.addEventListener("click", (event) => {
-  event.preventDefault();
-  const moduleId = "modul1"; // Ganti dengan ID modul yang sesuai
-  toggleLike(moduleId);
-});
+// likeButton.addEventListener("click", (event) => {
+//   event.preventDefault();
+//   const moduleId = "modul1"; // Ganti dengan ID modul yang sesuai
+//   toggleLike(moduleId);
+// });
 
-window.addEventListener("load", () => {
-  const moduleId = "modul1"; // Ganti dengan ID modul yang sesuai
-  loadModuleData(moduleId);
-});
+// window.addEventListener("load", () => {
+//   const moduleId = "modul1"; // Ganti dengan ID modul yang sesuai
+//   loadModuleData(moduleId);
+// });
 
 window.addEventListener("load", loadLikeStatus);
 
-const initializeModule = async (moduleId, title) => {
-  const moduleRef = doc(db, "modules", moduleId);
-  await setDoc(moduleRef, { title, likes: 0 });
-};
-
-initializeModule("modul1", "Modul 1 - Filsafat Pancasila");
-initializeModule(
-  "modul2",
-  "Modul 2 - Dinamika Kehidupan Berbangsa dan Bernegara"
-);
-initializeModule(
-  "modul3",
-  "Modul 3 - Pancasila Sebagai Filsafat dan Ideologi Bangsa"
-);
-initializeModule("modul4", "Modul 4 - Identitas dan Integrasi Nasional");
-initializeModule(
-  "modul5",
-  "Modul 5 - Nilai dan Norma Dalam Kerangka Negara Hukum"
-);
-initializeModule(
-  "modul6",
-  "Modul 6 - Dinamika dan Tantangan Demokrasi Indonesia"
-);
-initializeModule("modul7", "Modul 7 - Hak dan Kewajiban Warga Indonesia");
-initializeModule(
-  "modul8",
-  "Modul 8 - Harmonisasi Hak dan Kewajiban Negara dan Warganegara Serta Hak Asasi Manusia"
-);
-initializeModule("modul9", "Modul 9 - Geopolitik dan Geostrategi Indonesia");
+// const initializeModule = async (moduleId, title) => {
+//   const moduleRef = doc(db, "modules", moduleId);
+//   await setDoc(moduleRef, { title, likes: 0 });
+// };
