@@ -224,16 +224,16 @@ likeButton.addEventListener("click", async (event) => {
 
   try {
     await toggleLike(userId, moduleId, isLiked); // Fungsi toggleLike dari langkah sebelumnya
-    // isLiked = !isLiked; // Ubah status
-    // const moduleRef = doc(db, "modules", moduleId);
-    // const moduleDoc = await getDoc(moduleRef);
+    isLiked = !isLiked; // Ubah status
+    const moduleRef = doc(db, "modules", moduleId);
+    const moduleDoc = await getDoc(moduleRef);
 
-    // if (moduleDoc.exists()) {
-    //   const moduleData = moduleDoc.data();
-    //   likeCountElement.innerText = moduleData.likes || 0;
-    // }
-    // const currentCount = parseInt(likeCountElement.innerText, 10);
-    // likeCountElement.innerText = isLiked ? currentCount + 1 : currentCount - 1;
+    if (moduleDoc.exists()) {
+      const moduleData = moduleDoc.data();
+      likeCountElement.innerText = moduleData.likes || 0;
+    }
+    const currentCount = parseInt(likeCountElement.innerText, 10);
+    likeCountElement.innerText = isLiked ? currentCount + 1 : currentCount - 1;
     updateLikeButtonUI();
   } catch (error) {
     console.error("Error handling like button:", error);
