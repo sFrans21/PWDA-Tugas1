@@ -54,7 +54,7 @@ submit.addEventListener("click", function (event) {
       const docRef = doc(db, "user", user.uid);
       setDoc(docRef, userData)
         .then(async () => {
-          const moduleId = "modul1";
+          const moduleId = `module_${user.uid}_${Date.now()}`;
           const moduleData = {
             likes: 0,
             quizProgress: {
