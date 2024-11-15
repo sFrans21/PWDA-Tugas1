@@ -75,13 +75,35 @@ logoutButton.addEventListener("click", () => {
     });
 });
 
-const toggleLike = async (userId, moduleId, isLiked) => {
+// const toggleLike = async (userId, moduleId, isLiked) => {
+//   try {
+//     const moduleRef = doc(db, "user", userId, "modules", moduleId);
+//     await updateDoc(moduleRef, {
+//       likes: increment(isLiked ? -1 : 1), // Increment jika unlike
+//     });
+//     console.log(isLiked ? "Unliked" : "Liked");
+//   } catch (error) {
+//     console.error("Error updating likes:", error);
+//   }
+// };
+
+const toggleLike = async (moduleId) => {
   try {
-    const moduleRef = doc(db, "user", userId, "modules", moduleId);
-    await updateDoc(moduleRef, {
-      likes: increment(isLiked ? -1 : 1), // Increment jika unlike
-    });
-    console.log(isLiked ? "Unliked" : "Liked");
+    const moduleRef = doc(db, "modules", moduleId);
+
+    if (isLiked) {
+      await updateDoc(moduleRef, { likes: increment(-1) });
+    } else {
+      await updateDoc(moduleRef, { likes: increment(1) });
+    }
+
+    isLiked = !isLiked; // Toggle status
+    const moduleDoc = await getDoc(moduleRef);
+    if (moduleDoc.exists()) {
+      const moduleData = moduleDoc.data();
+      likeCountElement.innerText = moduleData.likes;
+      updateLikeButtonUI();
+    }
   } catch (error) {
     console.error("Error updating likes:", error);
   }
@@ -146,4 +168,40 @@ const loadLikeStatus = async () => {
   }
 };
 
+likeButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  const moduleId = "modul1"; // Ganti dengan ID modul yang sesuai
+  toggleLike(moduleId);
+});
+
+const loadModuleData = async (moduleId) => {
+  try {
+    const moduleRef = doc(db, "modules", moduleId);
+    const moduleDoc = await getDoc(moduleRef);
+
+    if (moduleDoc.exists()) {
+      const moduleData = moduleDoc.data();
+      likeCountElement.innerText = moduleData.likes || 0;
+      isLiked = false; // Default
+      updateLikeButtonUI();
+    } else {
+      console.log("Module data not found");
+    }
+  } catch (error) {
+    console.error("Error loading module data:", error);
+  }
+};
+
+window.addEventListener("load", () => {
+  const moduleId = "modul1"; // Ganti dengan ID modul yang sesuai
+  loadModuleData(moduleId);
+});
+
 window.addEventListener("load", loadLikeStatus);
+
+const initializeModule = async (moduleId, title) => {
+  const moduleRef = doc(db, "modules", moduleId);
+  await setDoc(moduleRef, { title, likes: 0 });
+};
+
+initializeModule("modul1", "Modul 1 - Filsafat Pancasila");
