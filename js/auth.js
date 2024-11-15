@@ -75,9 +75,9 @@ logoutButton.addEventListener("click", () => {
     });
 });
 
-// const likeButton = document.getElementById("likeButton");
-// const likeCountElement = document.getElementById("likeCount");
-// let isLiked = false;
+const likeButton = document.getElementById("likeButton");
+const likeCountElement = document.getElementById("likeCount");
+let isLiked = false;
 
 // const toggleLike = async (userId, moduleId, isLiked) => {
 //   try {
