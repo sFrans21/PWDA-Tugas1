@@ -174,6 +174,29 @@ likeButton.addEventListener("click", (event) => {
   toggleLike(moduleId);
 });
 
+const loadModuleData = async (moduleId) => {
+  try {
+    const moduleRef = doc(db, "modules", moduleId);
+    const moduleDoc = await getDoc(moduleRef);
+
+    if (moduleDoc.exists()) {
+      const moduleData = moduleDoc.data();
+      likeCountElement.innerText = moduleData.likes || 0;
+      isLiked = false; // Default
+      updateLikeButtonUI();
+    } else {
+      console.log("Module data not found");
+    }
+  } catch (error) {
+    console.error("Error loading module data:", error);
+  }
+};
+
+window.addEventListener("load", () => {
+  const moduleId = "modul1"; // Ganti dengan ID modul yang sesuai
+  loadModuleData(moduleId);
+});
+
 window.addEventListener("load", loadLikeStatus);
 
 const initializeModule = async (moduleId, title) => {
