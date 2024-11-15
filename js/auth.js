@@ -75,39 +75,39 @@ logoutButton.addEventListener("click", () => {
     });
 });
 
-// const toggleLike = async (userId, moduleId, isLiked) => {
-//   try {
-//     const moduleRef = doc(db, "user", userId, "modules", moduleId);
-//     await updateDoc(moduleRef, {
-//       likes: increment(isLiked ? -1 : 1), // Increment jika unlike
-//     });
-//     console.log(isLiked ? "Unliked" : "Liked");
-//   } catch (error) {
-//     console.error("Error updating likes:", error);
-//   }
-// };
-
-const toggleLike = async (moduleId) => {
+const toggleLike = async (userId, moduleId, isLiked) => {
   try {
-    const moduleRef = doc(db, "modules", moduleId);
-
-    if (isLiked) {
-      await updateDoc(moduleRef, { likes: increment(-1) });
-    } else {
-      await updateDoc(moduleRef, { likes: increment(1) });
-    }
-
-    isLiked = !isLiked; // Toggle status
-    const moduleDoc = await getDoc(moduleRef);
-    if (moduleDoc.exists()) {
-      const moduleData = moduleDoc.data();
-      likeCountElement.innerText = moduleData.likes;
-      updateLikeButtonUI();
-    }
+    const moduleRef = doc(db, "user", userId, "modules", moduleId);
+    await updateDoc(moduleRef, {
+      likes: increment(isLiked ? -1 : 1), // Increment jika unlike
+    });
+    console.log(isLiked ? "Unliked" : "Liked");
   } catch (error) {
     console.error("Error updating likes:", error);
   }
 };
+
+// const toggleLike = async (moduleId) => {
+//   try {
+//     const moduleRef = doc(db, "modules", moduleId);
+
+//     if (isLiked) {
+//       await updateDoc(moduleRef, { likes: increment(-1) });
+//     } else {
+//       await updateDoc(moduleRef, { likes: increment(1) });
+//     }
+
+//     isLiked = !isLiked; // Toggle status
+//     const moduleDoc = await getDoc(moduleRef);
+//     if (moduleDoc.exists()) {
+//       const moduleData = moduleDoc.data();
+//       likeCountElement.innerText = moduleData.likes;
+//       updateLikeButtonUI();
+//     }
+//   } catch (error) {
+//     console.error("Error updating likes:", error);
+//   }
+// };
 
 const likeButton = document.getElementById("likeButton");
 const likeCountElement = document.getElementById("likeCount");
