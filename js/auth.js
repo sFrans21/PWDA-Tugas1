@@ -78,7 +78,7 @@ logoutButton.addEventListener("click", () => {
 const toggleLike = async (userId, moduleId, isLiked) => {
   try {
     const userModuleRef = doc(db, "user", userId, "modules", moduleId);
-    await updateDoc(moduleRef, {
+    await updateDoc(userModuleRef, {
       likes: increment(isLiked ? -1 : 1), // Increment jika unlike
     });
 
@@ -160,26 +160,26 @@ likeButton.addEventListener("click", async (event) => {
   }
 });
 
-// const loadLikeStatus = async () => {
-//   const userId = localStorage.getItem("loggedInUserId");
-//   const moduleId = "module123"; // Ganti dengan ID modul yang sesuai
+const loadLikeStatus = async () => {
+  const userId = localStorage.getItem("loggedInUserId");
+  const moduleId = "module123"; // Ganti dengan ID modul yang sesuai
 
-//   if (!userId) return;
+  if (!userId) return;
 
-//   try {
-//     const moduleRef = doc(db, "users", userId, "modules", moduleId);
-//     const moduleDoc = await getDoc(moduleRef);
-//     if (moduleDoc.exists()) {
-//       const moduleData = moduleDoc.data();
-//       isLiked = moduleData.isLiked || false;
-//       const likeCount = moduleData.likes || 0;
-//       likeCountElement.innerText = likeCount;
-//       updateLikeButtonUI();
-//     }
-//   } catch (error) {
-//     console.error("Error loading like status:", error);
-//   }
-// };
+  try {
+    const moduleRef = doc(db, "users", userId, "modules", moduleId);
+    const moduleDoc = await getDoc(moduleRef);
+    if (moduleDoc.exists()) {
+      const moduleData = moduleDoc.data();
+      isLiked = moduleData.isLiked || false;
+      const likeCount = moduleData.likes || 0;
+      likeCountElement.innerText = likeCount;
+      updateLikeButtonUI();
+    }
+  } catch (error) {
+    console.error("Error loading like status:", error);
+  }
+};
 
 const loadModuleLikes = async (moduleId) => {
   try {
