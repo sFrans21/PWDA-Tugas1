@@ -77,10 +77,16 @@ logoutButton.addEventListener("click", () => {
 
 const toggleLike = async (userId, moduleId, isLiked) => {
   try {
-    const moduleRef = doc(db, "user", userId, "modules", moduleId);
+    const userModuleRef = doc(db, "user", userId, "modules", moduleId);
     await updateDoc(moduleRef, {
       likes: increment(isLiked ? -1 : 1), // Increment jika unlike
     });
+
+    const moduleRef = doc(db, "modules", moduleId);
+    await updateDoc(moduleRef, {
+      likes: increment(isLiked ? -1 : 1),
+    });
+
     console.log(isLiked ? "Unliked" : "Liked");
   } catch (error) {
     console.error("Error updating likes:", error);
@@ -129,7 +135,7 @@ likeButton.addEventListener("click", async (event) => {
   event.preventDefault();
 
   const userId = localStorage.getItem("loggedInUserId");
-  const moduleId = "module123"; // Ganti dengan ID modul yang sesuai
+  const moduleId = "modul1"; // Ganti dengan ID modul yang sesuai
 
   if (!userId) {
     alert("Anda harus login terlebih dahulu!");
@@ -139,34 +145,65 @@ likeButton.addEventListener("click", async (event) => {
   try {
     await toggleLike(userId, moduleId, isLiked); // Fungsi toggleLike dari langkah sebelumnya
     isLiked = !isLiked; // Ubah status
-    const currentCount = parseInt(likeCountElement.innerText, 10);
-    likeCountElement.innerText = isLiked ? currentCount + 1 : currentCount - 1;
+    const moduleRef = doc(db, "modules", moduleId);
+    const moduleDoc = await getDoc(moduleRef);
+
+    if (moduleDoc.exists()) {
+      const moduleData = moduleDoc.data();
+      likeCountElement.innerText = moduleData.likes || 0;
+    }
+    // const currentCount = parseInt(likeCountElement.innerText, 10);
+    // likeCountElement.innerText = isLiked ? currentCount + 1 : currentCount - 1;
     updateLikeButtonUI();
   } catch (error) {
     console.error("Error handling like button:", error);
   }
 });
 
-const loadLikeStatus = async () => {
-  const userId = localStorage.getItem("loggedInUserId");
-  const moduleId = "module123"; // Ganti dengan ID modul yang sesuai
+// const loadLikeStatus = async () => {
+//   const userId = localStorage.getItem("loggedInUserId");
+//   const moduleId = "module123"; // Ganti dengan ID modul yang sesuai
 
-  if (!userId) return;
+//   if (!userId) return;
 
+//   try {
+//     const moduleRef = doc(db, "users", userId, "modules", moduleId);
+//     const moduleDoc = await getDoc(moduleRef);
+//     if (moduleDoc.exists()) {
+//       const moduleData = moduleDoc.data();
+//       isLiked = moduleData.isLiked || false;
+//       const likeCount = moduleData.likes || 0;
+//       likeCountElement.innerText = likeCount;
+//       updateLikeButtonUI();
+//     }
+//   } catch (error) {
+//     console.error("Error loading like status:", error);
+//   }
+// };
+
+const loadModuleLikes = async (moduleId) => {
   try {
-    const moduleRef = doc(db, "users", userId, "modules", moduleId);
+    const moduleRef = doc(db, "modules", moduleId);
     const moduleDoc = await getDoc(moduleRef);
+
     if (moduleDoc.exists()) {
       const moduleData = moduleDoc.data();
-      isLiked = moduleData.isLiked || false;
-      const likeCount = moduleData.likes || 0;
-      likeCountElement.innerText = likeCount;
+      likeCountElement.innerText = moduleData.likes || 0; // Tampilkan jumlah likes
+      isLiked = false; // Set status default
       updateLikeButtonUI();
+    } else {
+      console.log("Module data not found");
     }
   } catch (error) {
-    console.error("Error loading like status:", error);
+    console.error("Error loading module data:", error);
   }
 };
+
+// Load jumlah likes saat halaman dimuat
+window.addEventListener("load", () => {
+  const moduleId = "modul1"; // ID modul yang sesuai
+  loadModuleLikes(moduleId);
+});
 
 likeButton.addEventListener("click", (event) => {
   event.preventDefault();
