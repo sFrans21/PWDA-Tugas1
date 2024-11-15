@@ -3,21 +3,22 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebas
 // https://firebase.google.com/docs/web/setup#available-libraries
 import {
   getAuth,
-  onAuthStateChanged,
-  signOut,
+  // onAuthStateChanged,
+  // signOut,
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
 import {
   getFirestore,
-  getDoc,
-  setDoc,
-  doc,
+  // getDoc,
+  // setDoc,
+  updateDoc,
+  // doc,
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
-import {
-  updateDoc,
-  increment,
-} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+// import {
+//   updateDoc,
+//   increment,
+// } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -32,40 +33,59 @@ const firebaseConfig = {
 const auth = getAuth();
 const db = getFirestore();
 
-const likeButton = document.getElementById("likeButton");
-const likeCountElement = document.getElementById("likeCount");
-let isLiked = false;
+// const likeButton = document.getElementById("likeButton");
+// const likeCountElement = document.getElementById("likeCount");
+// let isLiked = false;
 
-const incrementLikes = (userId, moduleId) => {
-  firestore
-    .collection("user")
-    .doc(userId)
-    .collection("modules")
-    .doc(moduleId)
-    .update({
-      likes: firebase.firestore.FieldValue.increment(1), // Menambah 1 like
-    })
-    .then(() => {
-      console.log("Like berhasil ditambahkan!");
-    })
-    .catch((error) => {
-      console.error("Error menambah like: ", error);
-    });
-};
+// const incrementLikes = (userId, moduleId) => {
+//   firestore
+//     .collection("user")
+//     .doc(userId)
+//     .collection("modules")
+//     .doc(moduleId)
+//     .update({
+//       likes: firebase.firestore.FieldValue.increment(1), // Menambah 1 like
+//     })
+//     .then(() => {
+//       console.log("Like berhasil ditambahkan!");
+//     })
+//     .catch((error) => {
+//       console.error("Error menambah like: ", error);
+//     });
+// };
 
-const decrementLikes = (userId, moduleId) => {
-  firestore
-    .collection("users")
-    .doc(userId)
-    .collection("modules")
-    .doc(moduleId)
-    .update({
-      likes: firebase.firestore.FieldValue.increment(-1), // Mengurangi 1 like
-    })
-    .then(() => {
-      console.log("Like berhasil dikurangi!");
-    })
-    .catch((error) => {
-      console.error("Error mengurangi like: ", error);
-    });
+// const decrementLikes = (userId, moduleId) => {
+//   firestore
+//     .collection("users")
+//     .doc(userId)
+//     .collection("modules")
+//     .doc(moduleId)
+//     .update({
+//       likes: firebase.firestore.FieldValue.increment(-1), // Mengurangi 1 like
+//     })
+//     .then(() => {
+//       console.log("Like berhasil dikurangi!");
+//     })
+//     .catch((error) => {
+//       console.error("Error mengurangi like: ", error);
+//     });
+// };
+
+const user = userCredential.user;
+const userData = {
+  email: email,
+  name: fullName,
+  nim: nim,
+  faculty: faculty,
 };
+// const docRef = doc(db, "user", user.uid);
+updateDoc(docRef, userData).then(async () => {
+  const moduleId = `module_${user.uid}_${Date.now()}`;
+  const moduleData = {
+    likes: 0,
+    quizProgress: {
+      finished: false,
+      score: 0,
+    },
+  };
+});

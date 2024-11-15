@@ -148,35 +148,6 @@ const loadModuleData = async (moduleId) => {
   }
 };
 
-likeButton.addEventListener("click", async (event) => {
-  event.preventDefault();
-
-  const userId = localStorage.getItem("loggedInUserId");
-  const moduleId = "modul1"; // Ganti dengan ID modul yang sesuai
-
-  if (!userId) {
-    alert("Anda harus login terlebih dahulu!");
-    return;
-  }
-
-  try {
-    await toggleLike(userId, moduleId, isLiked); // Fungsi toggleLike dari langkah sebelumnya
-    isLiked = !isLiked; // Ubah status
-    const moduleRef = doc(db, "modules", moduleId);
-    const moduleDoc = await getDoc(moduleRef);
-
-    if (moduleDoc.exists()) {
-      const moduleData = moduleDoc.data();
-      likeCountElement.innerText = moduleData.likes || 0;
-    }
-    const currentCount = parseInt(likeCountElement.innerText, 10);
-    likeCountElement.innerText = isLiked ? currentCount + 1 : currentCount - 1;
-    updateLikeButtonUI();
-  } catch (error) {
-    console.error("Error handling like button:", error);
-  }
-});
-
 // const loadLikeStatus = async () => {
 //   const userId = localStorage.getItem("loggedInUserId");
 //   const moduleId = "module123"; // Ganti dengan ID modul yang sesuai
@@ -239,3 +210,32 @@ window.addEventListener("load", () => {
 //   const moduleRef = doc(db, "modules", moduleId);
 //   await setDoc(moduleRef, { title, likes: 0 });
 // };
+
+likeButton.addEventListener("click", async (event) => {
+  event.preventDefault();
+
+  const userId = localStorage.getItem("loggedInUserId");
+  const moduleId = "modul1"; // Ganti dengan ID modul yang sesuai
+
+  if (!userId) {
+    alert("Anda harus login terlebih dahulu!");
+    return;
+  }
+
+  try {
+    await toggleLike(userId, moduleId, isLiked); // Fungsi toggleLike dari langkah sebelumnya
+    isLiked = !isLiked; // Ubah status
+    const moduleRef = doc(db, "modules", moduleId);
+    const moduleDoc = await getDoc(moduleRef);
+
+    if (moduleDoc.exists()) {
+      const moduleData = moduleDoc.data();
+      likeCountElement.innerText = moduleData.likes || 0;
+    }
+    const currentCount = parseInt(likeCountElement.innerText, 10);
+    likeCountElement.innerText = isLiked ? currentCount + 1 : currentCount - 1;
+    updateLikeButtonUI();
+  } catch (error) {
+    console.error("Error handling like button:", error);
+  }
+});
