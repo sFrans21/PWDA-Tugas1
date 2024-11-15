@@ -1255,3 +1255,24 @@ section {
     height: 25rem;
   }
 }
+
+#likeButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #555;
+  transition: color 0.3s ease;
+}
+
+#likeButton.liked {
+  color: red; /* Warna tombol saat di-like */
+}
+
+#likeButton i {
+  margin-right: 5px;
+}
+
+#likeButton:hover {
+  color: #ff6b6b; /* Warna tombol saat hover */
+}

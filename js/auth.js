@@ -102,11 +102,24 @@ const updateLikeButtonUI = () => {
   }
 };
 
-// likeButton.addEventListener("click", async () => {
-//   event.preventDefault();
-//   const userId = localStorage.getItem("loggedInUserId");
-//   const moduleId = "module123"; // Ganti dengan module ID dinamis
-//   const isLiked = false; // Ambil status dari UI
+likeButton.addEventListener("click", async (event) => {
+  event.preventDefault();
 
-//   await toggleLike(userId, moduleId, isLiked);
-// });
+  const userId = localStorage.getItem("loggedInUserId");
+  const moduleId = "module123"; // Ganti dengan ID modul yang sesuai
+
+  if (!userId) {
+    alert("Anda harus login terlebih dahulu!");
+    return;
+  }
+
+  try {
+    await toggleLike(userId, moduleId, isLiked); // Fungsi toggleLike dari langkah sebelumnya
+    isLiked = !isLiked; // Ubah status
+    const currentCount = parseInt(likeCountElement.innerText, 10);
+    likeCountElement.innerText = isLiked ? currentCount + 1 : currentCount - 1;
+    updateLikeButtonUI();
+  } catch (error) {
+    console.error("Error handling like button:", error);
+  }
+});
