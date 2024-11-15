@@ -42,6 +42,7 @@ onAuthStateChanged(auth, (user) => {
           document.getElementById("loggedUserName").innerText = userData.name;
           document.getElementById("loggedUserEmail").innerText = userData.email;
           document.getElementById("loggedNim").innerText = userData.nim;
+          document.getElementById("loggedFaculty").innerText = userData.faculty;
         } else {
           console.log("NO DOCUMENT FOUND MATCHING ID");
         }
