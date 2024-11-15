@@ -87,6 +87,21 @@ const toggleLike = async (userId, moduleId, isLiked) => {
 };
 
 const likeButton = document.getElementById("likeButton");
+const likeCountElement = document.getElementById("likeCount");
+let isLiked = false;
+
+const updateLikeButtonUI = () => {
+  if (isLiked) {
+    likeButton.classList.add("liked");
+    likeButton.innerHTML =
+      '<i class="fas fa-heart"></i><span id="likeTest">unlike</span>';
+  } else {
+    likeButton.classList.remove("liked");
+    likeButton.innerHTML =
+      '<i class="far fa-heart"></i><span id="likeTest">like</span>';
+  }
+};
+
 likeButton.addEventListener("click", async () => {
   const userId = localStorage.getItem("loggedInUserId");
   const moduleId = "module123"; // Ganti dengan module ID dinamis
