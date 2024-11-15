@@ -14,6 +14,11 @@ import {
   doc,
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
+import {
+  updateDoc,
+  increment,
+} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyD0XlXERSPwYVn7RGViRD7oBr9dLmumygQ",
@@ -69,65 +74,23 @@ logoutButton.addEventListener("click", () => {
     });
 });
 
-// const updateLikeDisplay = (count) => {
-//   document.getElementById("likeCount").innerText = count;
-//   document.getElementById("likeText").innerText = isLiked ? "unlike" : "like";
-// };
+const toggleLike = async (userId, moduleId, isLiked) => {
+  try {
+    const moduleRef = doc(db, "user", userId, "modules", moduleId);
+    await updateDoc(moduleRef, {
+      likes: increment(isLiked ? -1 : 1), // Increment jika unlike
+    });
+    console.log(isLiked ? "Unliked" : "Liked");
+  } catch (error) {
+    console.error("Error updating likes:", error);
+  }
+};
 
-// // Fungsi untuk mengambil jumlah like dari Firestore dan menampilkan
-// const getLikeCount = async () => {
-//   try {
-//     const moduleRef = firestore
-//       .collection("users")
-//       .doc(userId)
-//       .collection("modules")
-//       .doc(moduleId);
-//     const moduleDoc = await moduleRef.get();
-//     if (moduleDoc.exists) {
-//       likeCount = moduleDoc.data().likes || 0;
-//       isLiked = moduleDoc.data().isLiked || false; // Optional jika ingin simpan status like di Firestore
-//       updateLikeDisplay(likeCount);
-//     }
-//   } catch (error) {
-//     console.error("Error mengambil jumlah like:", error);
-//   }
-// };
+const likeButton = document.getElementById("likeButton");
+likeButton.addEventListener("click", async () => {
+  const userId = localStorage.getItem("loggedInUserId");
+  const moduleId = "module123"; // Ganti dengan module ID dinamis
+  const isLiked = false; // Ambil status dari UI
 
-// // Fungsi untuk menambah jumlah like di Firestore
-// const incrementLikes = async () => {
-//   await firestore
-//     .collection("users")
-//     .doc(userId)
-//     .collection("modules")
-//     .doc(moduleId)
-//     .update({
-//       likes: firebase.firestore.FieldValue.increment(1),
-//     });
-//   likeCount += 1;
-//   isLiked = true;
-//   updateLikeDisplay(likeCount);
-// };
-
-// // Fungsi untuk mengurangi jumlah like di Firestore
-// const decrementLikes = async () => {
-//   await firestore
-//     .collection("users")
-//     .doc(userId)
-//     .collection("modules")
-//     .doc(moduleId)
-//     .update({
-//       likes: firebase.firestore.FieldValue.increment(-1),
-//     });
-//   likeCount -= 1;
-//   isLiked = false;
-//   updateLikeDisplay(likeCount);
-// };
-
-// // Event listener untuk tombol like
-// document.getElementById("likeButton").addEventListener("click", () => {
-//   if (isLiked) {
-//     decrementLikes(); // Jika sudah di-like, maka unlike
-//   } else {
-//     incrementLikes(); // Jika belum di-like, maka like
-//   }
-// });
+  await toggleLike(userId, moduleId, isLiked);
+});
