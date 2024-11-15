@@ -169,29 +169,29 @@ const toggleLike = async (moduleId) => {
 //   }
 // };
 
-const loadModuleLikes = async (moduleId) => {
-  try {
-    const moduleRef = doc(db, "modules", moduleId);
-    const moduleDoc = await getDoc(moduleRef);
+// const loadModuleLikes = async (moduleId) => {
+//   try {
+//     const moduleRef = doc(db, "modules", moduleId);
+//     const moduleDoc = await getDoc(moduleRef);
 
-    if (moduleDoc.exists()) {
-      const moduleData = moduleDoc.data();
-      likeCountElement.innerText = moduleData.likes || 0; // Tampilkan jumlah likes
-      isLiked = false; // Set status default
-      updateLikeButtonUI();
-    } else {
-      console.log("Module data not found");
-    }
-  } catch (error) {
-    console.error("Error loading module data:", error);
-  }
-};
+//     if (moduleDoc.exists()) {
+//       const moduleData = moduleDoc.data();
+//       likeCountElement.innerText = moduleData.likes || 0; // Tampilkan jumlah likes
+//       isLiked = false; // Set status default
+//       updateLikeButtonUI();
+//     } else {
+//       console.log("Module data not found");
+//     }
+//   } catch (error) {
+//     console.error("Error loading module data:", error);
+//   }
+// };
 
-// Load jumlah likes saat halaman dimuat
-window.addEventListener("load", () => {
-  const moduleId = "modul1"; // ID modul yang sesuai
-  loadModuleLikes(moduleId);
-});
+// // Load jumlah likes saat halaman dimuat
+// window.addEventListener("load", () => {
+//   const moduleId = "modul1"; // ID modul yang sesuai
+//   loadModuleLikes(moduleId);
+// });
 
 // likeButton.addEventListener("click", (event) => {
 //   event.preventDefault();
@@ -234,7 +234,7 @@ likeButton.addEventListener("click", async (event) => {
     }
     const currentCount = parseInt(likeCountElement.innerText, 10);
     likeCountElement.innerText = isLiked ? currentCount + 1 : currentCount - 1;
-    updateLikeButtonUI();
+    // updateLikeButtonUI();
   } catch (error) {
     console.error("Error handling like button:", error);
   }
