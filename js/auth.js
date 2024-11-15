@@ -102,10 +102,11 @@ const updateLikeButtonUI = () => {
   }
 };
 
-likeButton.addEventListener("click", async () => {
-  const userId = localStorage.getItem("loggedInUserId");
-  const moduleId = "module123"; // Ganti dengan module ID dinamis
-  const isLiked = false; // Ambil status dari UI
+// likeButton.addEventListener("click", async () => {
+//   event.preventDefault();
+//   const userId = localStorage.getItem("loggedInUserId");
+//   const moduleId = "module123"; // Ganti dengan module ID dinamis
+//   const isLiked = false; // Ambil status dari UI
 
-  await toggleLike(userId, moduleId, isLiked);
-});
+//   await toggleLike(userId, moduleId, isLiked);
+// });
