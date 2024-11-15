@@ -33,59 +33,39 @@ const firebaseConfig = {
 const auth = getAuth();
 const db = getFirestore();
 
-// const likeButton = document.getElementById("likeButton");
-// const likeCountElement = document.getElementById("likeCount");
-// let isLiked = false;
+const likeButton = document.getElementById("likeButton");
+const likeCountElement = document.getElementById("likeCount");
+let isLiked = false;
 
-// const incrementLikes = (userId, moduleId) => {
-//   firestore
-//     .collection("user")
-//     .doc(userId)
-//     .collection("modules")
-//     .doc(moduleId)
-//     .update({
-//       likes: firebase.firestore.FieldValue.increment(1), // Menambah 1 like
-//     })
-//     .then(() => {
-//       console.log("Like berhasil ditambahkan!");
-//     })
-//     .catch((error) => {
-//       console.error("Error menambah like: ", error);
-//     });
-// };
+const handleLike = async (userId, moduleId) => {
+  // const userId = "user123"; // Ganti dengan ID pengguna
+  // const moduleId = "module_123"; // Ganti dengan ID modul
+  const docRef = doc(db, "user", userId, "modules", moduleId);
 
-// const decrementLikes = (userId, moduleId) => {
-//   firestore
-//     .collection("users")
-//     .doc(userId)
-//     .collection("modules")
-//     .doc(moduleId)
-//     .update({
-//       likes: firebase.firestore.FieldValue.increment(-1), // Mengurangi 1 like
-//     })
-//     .then(() => {
-//       console.log("Like berhasil dikurangi!");
-//     })
-//     .catch((error) => {
-//       console.error("Error mengurangi like: ", error);
-//     });
-// };
+  try {
+    if (isLiked) {
+      // Jika sudah di-like, kurangi like
+      await updateDoc(docRef, {
+        likes: increment(-1),
+      });
+      isLiked = false;
+    } else {
+      // Jika belum di-like, tambahkan like
+      await updateDoc(docRef, {
+        likes: increment(1),
+      });
+      isLiked = true;
+    }
 
-const user = userCredential.user;
-const userData = {
-  email: email,
-  name: fullName,
-  nim: nim,
-  faculty: faculty,
+    // Ambil jumlah likes terbaru dari Firestore
+    const docSnapshot = await getDoc(docRef);
+    if (docSnapshot.exists()) {
+      const likeData = docSnapshot.data();
+      likeCountElement.textContent = likeData.likes || 0; // Perbarui tampilan likes
+    }
+  } catch (error) {
+    console.error("Error updating likes: ", error);
+  }
 };
-// const docRef = doc(db, "user", user.uid);
-updateDoc(docRef, userData).then(async () => {
-  const moduleId = `module_${user.uid}_${Date.now()}`;
-  const moduleData = {
-    likes: 0,
-    quizProgress: {
-      finished: false,
-      score: 0,
-    },
-  };
-});
+
+likeButton.addEventListener("click", handleLike);
