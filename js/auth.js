@@ -11,6 +11,7 @@ import {
 import {
   getFirestore,
   getDoc,
+  setDoc,
   doc,
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
@@ -74,13 +75,35 @@ logoutButton.addEventListener("click", () => {
     });
 });
 
-const toggleLike = async (userId, moduleId, isLiked) => {
+// const toggleLike = async (userId, moduleId, isLiked) => {
+//   try {
+//     const moduleRef = doc(db, "user", userId, "modules", moduleId);
+//     await updateDoc(moduleRef, {
+//       likes: increment(isLiked ? -1 : 1), // Increment jika unlike
+//     });
+//     console.log(isLiked ? "Unliked" : "Liked");
+//   } catch (error) {
+//     console.error("Error updating likes:", error);
+//   }
+// };
+
+const toggleLike = async (moduleId) => {
   try {
-    const moduleRef = doc(db, "user", userId, "modules", moduleId);
-    await updateDoc(moduleRef, {
-      likes: increment(isLiked ? -1 : 1), // Increment jika unlike
-    });
-    console.log(isLiked ? "Unliked" : "Liked");
+    const moduleRef = doc(db, "modules", moduleId);
+
+    if (isLiked) {
+      await updateDoc(moduleRef, { likes: increment(-1) });
+    } else {
+      await updateDoc(moduleRef, { likes: increment(1) });
+    }
+
+    isLiked = !isLiked; // Toggle status
+    const moduleDoc = await getDoc(moduleRef);
+    if (moduleDoc.exists()) {
+      const moduleData = moduleDoc.data();
+      likeCountElement.innerText = moduleData.likes;
+      updateLikeButtonUI();
+    }
   } catch (error) {
     console.error("Error updating likes:", error);
   }
@@ -123,3 +146,39 @@ likeButton.addEventListener("click", async (event) => {
     console.error("Error handling like button:", error);
   }
 });
+
+const loadLikeStatus = async () => {
+  const userId = localStorage.getItem("loggedInUserId");
+  const moduleId = "module123"; // Ganti dengan ID modul yang sesuai
+
+  if (!userId) return;
+
+  try {
+    const moduleRef = doc(db, "users", userId, "modules", moduleId);
+    const moduleDoc = await getDoc(moduleRef);
+    if (moduleDoc.exists()) {
+      const moduleData = moduleDoc.data();
+      isLiked = moduleData.isLiked || false;
+      const likeCount = moduleData.likes || 0;
+      likeCountElement.innerText = likeCount;
+      updateLikeButtonUI();
+    }
+  } catch (error) {
+    console.error("Error loading like status:", error);
+  }
+};
+
+likeButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  const moduleId = "modul1"; // Ganti dengan ID modul yang sesuai
+  toggleLike(moduleId);
+});
+
+window.addEventListener("load", loadLikeStatus);
+
+const initializeModule = async (moduleId, title) => {
+  const moduleRef = doc(db, "modules", moduleId);
+  await setDoc(moduleRef, { title, likes: 0 });
+};
+
+initializeModule("modul1", "Modul 1 - Filsafat Pancasila");
