@@ -75,9 +75,10 @@ logoutButton.addEventListener("click", () => {
     });
 });
 
-const likeButton = document.getElementById("likeButton");
-const likeCountElement = document.getElementById("likeCount");
-let isLiked = false;
+// const likeButton = document.getElementById("likeButton");
+// const likeCountElement = document.getElementById("likeCount");
+// let isLiked = false;
+
 // const toggleLike = async (userId, moduleId, isLiked) => {
 //   try {
 //     const userModuleRef = doc(db, "user", userId, "modules", moduleId);
@@ -95,6 +96,18 @@ let isLiked = false;
 //     console.error("Error updating likes:", error);
 //   }
 // };
+
+const updateLikeButtonUI = () => {
+  if (isLiked) {
+    likeButton.classList.add("liked");
+    likeButton.innerHTML =
+      '<i class="fas fa-heart"></i><span id="likeTest">unlike</span>';
+  } else {
+    likeButton.classList.remove("liked");
+    likeButton.innerHTML =
+      '<i class="far fa-heart"></i><span id="likeTest">like</span>';
+  }
+};
 
 const toggleLike = async (moduleId) => {
   try {
@@ -135,18 +148,6 @@ const loadModuleData = async (moduleId) => {
   }
 };
 
-const updateLikeButtonUI = () => {
-  if (isLiked) {
-    likeButton.classList.add("liked");
-    likeButton.innerHTML =
-      '<i class="fas fa-heart"></i><span id="likeTest">unlike</span>';
-  } else {
-    likeButton.classList.remove("liked");
-    likeButton.innerHTML =
-      '<i class="far fa-heart"></i><span id="likeTest">like</span>';
-  }
-};
-
 likeButton.addEventListener("click", async (event) => {
   event.preventDefault();
 
@@ -168,34 +169,34 @@ likeButton.addEventListener("click", async (event) => {
       const moduleData = moduleDoc.data();
       likeCountElement.innerText = moduleData.likes || 0;
     }
-    // const currentCount = parseInt(likeCountElement.innerText, 10);
-    // likeCountElement.innerText = isLiked ? currentCount + 1 : currentCount - 1;
+    const currentCount = parseInt(likeCountElement.innerText, 10);
+    likeCountElement.innerText = isLiked ? currentCount + 1 : currentCount - 1;
     updateLikeButtonUI();
   } catch (error) {
     console.error("Error handling like button:", error);
   }
 });
 
-const loadLikeStatus = async () => {
-  const userId = localStorage.getItem("loggedInUserId");
-  const moduleId = "module123"; // Ganti dengan ID modul yang sesuai
+// const loadLikeStatus = async () => {
+//   const userId = localStorage.getItem("loggedInUserId");
+//   const moduleId = "module123"; // Ganti dengan ID modul yang sesuai
 
-  if (!userId) return;
+//   if (!userId) return;
 
-  try {
-    const moduleRef = doc(db, "users", userId, "modules", moduleId);
-    const moduleDoc = await getDoc(moduleRef);
-    if (moduleDoc.exists()) {
-      const moduleData = moduleDoc.data();
-      isLiked = moduleData.isLiked || false;
-      const likeCount = moduleData.likes || 0;
-      likeCountElement.innerText = likeCount;
-      updateLikeButtonUI();
-    }
-  } catch (error) {
-    console.error("Error loading like status:", error);
-  }
-};
+//   try {
+//     const moduleRef = doc(db, "users", userId, "modules", moduleId);
+//     const moduleDoc = await getDoc(moduleRef);
+//     if (moduleDoc.exists()) {
+//       const moduleData = moduleDoc.data();
+//       isLiked = moduleData.isLiked || false;
+//       const likeCount = moduleData.likes || 0;
+//       likeCountElement.innerText = likeCount;
+//       updateLikeButtonUI();
+//     }
+//   } catch (error) {
+//     console.error("Error loading like status:", error);
+//   }
+// };
 
 const loadModuleLikes = async (moduleId) => {
   try {
@@ -232,7 +233,7 @@ window.addEventListener("load", () => {
 //   loadModuleData(moduleId);
 // });
 
-window.addEventListener("load", loadLikeStatus);
+// window.addEventListener("load", loadLikeStatus);
 
 // const initializeModule = async (moduleId, title) => {
 //   const moduleRef = doc(db, "modules", moduleId);
