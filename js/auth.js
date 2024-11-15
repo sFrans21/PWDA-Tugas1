@@ -130,23 +130,23 @@ const toggleLike = async (moduleId) => {
     console.error("Error updating likes:", error);
   }
 };
-const loadModuleData = async (moduleId) => {
-  try {
-    const moduleRef = doc(db, "modules", moduleId);
-    const moduleDoc = await getDoc(moduleRef);
+// const loadModuleData = async (moduleId) => {
+//   try {
+//     const moduleRef = doc(db, "modules", moduleId);
+//     const moduleDoc = await getDoc(moduleRef);
 
-    if (moduleDoc.exists()) {
-      const moduleData = moduleDoc.data();
-      likeCountElement.innerText = moduleData.likes || 0;
-      isLiked = false; // Default
-      updateLikeButtonUI();
-    } else {
-      console.log("Module data not found");
-    }
-  } catch (error) {
-    console.error("Error loading module data:", error);
-  }
-};
+//     if (moduleDoc.exists()) {
+//       const moduleData = moduleDoc.data();
+//       likeCountElement.innerText = moduleData.likes || 0;
+//       isLiked = false; // Default
+//       updateLikeButtonUI();
+//     } else {
+//       console.log("Module data not found");
+//     }
+//   } catch (error) {
+//     console.error("Error loading module data:", error);
+//   }
+// };
 
 // const loadLikeStatus = async () => {
 //   const userId = localStorage.getItem("loggedInUserId");
