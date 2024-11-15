@@ -75,49 +75,65 @@ logoutButton.addEventListener("click", () => {
     });
 });
 
-const toggleLike = async (userId, moduleId, isLiked) => {
-  try {
-    const userModuleRef = doc(db, "user", userId, "modules", moduleId);
-    await updateDoc(userModuleRef, {
-      likes: increment(isLiked ? -1 : 1), // Increment jika unlike
-    });
-
-    const moduleRef = doc(db, "modules", moduleId);
-    await updateDoc(moduleRef, {
-      likes: increment(isLiked ? -1 : 1),
-    });
-
-    console.log(isLiked ? "Unliked" : "Liked");
-  } catch (error) {
-    console.error("Error updating likes:", error);
-  }
-};
-
-// const toggleLike = async (moduleId) => {
+const likeButton = document.getElementById("likeButton");
+const likeCountElement = document.getElementById("likeCount");
+let isLiked = false;
+// const toggleLike = async (userId, moduleId, isLiked) => {
 //   try {
+//     const userModuleRef = doc(db, "user", userId, "modules", moduleId);
+//     await updateDoc(userModuleRef, {
+//       likes: increment(isLiked ? -1 : 1), // Increment jika unlike
+//     });
+
 //     const moduleRef = doc(db, "modules", moduleId);
+//     await updateDoc(moduleRef, {
+//       likes: increment(isLiked ? -1 : 1),
+//     });
 
-//     if (isLiked) {
-//       await updateDoc(moduleRef, { likes: increment(-1) });
-//     } else {
-//       await updateDoc(moduleRef, { likes: increment(1) });
-//     }
-
-//     isLiked = !isLiked; // Toggle status
-//     const moduleDoc = await getDoc(moduleRef);
-//     if (moduleDoc.exists()) {
-//       const moduleData = moduleDoc.data();
-//       likeCountElement.innerText = moduleData.likes;
-//       updateLikeButtonUI();
-//     }
+//     console.log(isLiked ? "Unliked" : "Liked");
 //   } catch (error) {
 //     console.error("Error updating likes:", error);
 //   }
 // };
 
-const likeButton = document.getElementById("likeButton");
-const likeCountElement = document.getElementById("likeCount");
-let isLiked = false;
+const toggleLike = async (moduleId) => {
+  try {
+    const moduleRef = doc(db, "modules", moduleId);
+
+    if (isLiked) {
+      await updateDoc(moduleRef, { likes: increment(-1) });
+    } else {
+      await updateDoc(moduleRef, { likes: increment(1) });
+    }
+
+    isLiked = !isLiked; // Toggle status
+    const moduleDoc = await getDoc(moduleRef);
+    if (moduleDoc.exists()) {
+      const moduleData = moduleDoc.data();
+      likeCountElement.innerText = moduleData.likes;
+      updateLikeButtonUI();
+    }
+  } catch (error) {
+    console.error("Error updating likes:", error);
+  }
+};
+const loadModuleData = async (moduleId) => {
+  try {
+    const moduleRef = doc(db, "modules", moduleId);
+    const moduleDoc = await getDoc(moduleRef);
+
+    if (moduleDoc.exists()) {
+      const moduleData = moduleDoc.data();
+      likeCountElement.innerText = moduleData.likes || 0;
+      isLiked = false; // Default
+      updateLikeButtonUI();
+    } else {
+      console.log("Module data not found");
+    }
+  } catch (error) {
+    console.error("Error loading module data:", error);
+  }
+};
 
 const updateLikeButtonUI = () => {
   if (isLiked) {
@@ -210,24 +226,6 @@ likeButton.addEventListener("click", (event) => {
   const moduleId = "modul1"; // Ganti dengan ID modul yang sesuai
   toggleLike(moduleId);
 });
-
-const loadModuleData = async (moduleId) => {
-  try {
-    const moduleRef = doc(db, "modules", moduleId);
-    const moduleDoc = await getDoc(moduleRef);
-
-    if (moduleDoc.exists()) {
-      const moduleData = moduleDoc.data();
-      likeCountElement.innerText = moduleData.likes || 0;
-      isLiked = false; // Default
-      updateLikeButtonUI();
-    } else {
-      console.log("Module data not found");
-    }
-  } catch (error) {
-    console.error("Error loading module data:", error);
-  }
-};
 
 window.addEventListener("load", () => {
   const moduleId = "modul1"; // Ganti dengan ID modul yang sesuai
