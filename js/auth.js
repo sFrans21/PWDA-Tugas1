@@ -79,23 +79,23 @@ const likeButton = document.getElementById("likeButton");
 const likeCountElement = document.getElementById("likeCount");
 let isLiked = false;
 
-// const toggleLike = async (userId, moduleId, isLiked) => {
-//   try {
-//     const userModuleRef = doc(db, "user", userId, "modules", moduleId);
-//     await updateDoc(userModuleRef, {
-//       likes: increment(isLiked ? -1 : 1), // Increment jika unlike
-//     });
+const toggleLike = async (userId, moduleId, isLiked) => {
+  try {
+    const userModuleRef = doc(db, "user", userId, "modules", moduleId);
+    await updateDoc(userModuleRef, {
+      likes: increment(isLiked ? -1 : 1), // Increment jika unlike
+    });
 
-//     const moduleRef = doc(db, "modules", moduleId);
-//     await updateDoc(moduleRef, {
-//       likes: increment(isLiked ? -1 : 1),
-//     });
+    const moduleRef = doc(db, "modules", moduleId);
+    await updateDoc(moduleRef, {
+      likes: increment(isLiked ? -1 : 1),
+    });
 
-//     console.log(isLiked ? "Unliked" : "Liked");
-//   } catch (error) {
-//     console.error("Error updating likes:", error);
-//   }
-// };
+    console.log(isLiked ? "Unliked" : "Liked");
+  } catch (error) {
+    console.error("Error updating likes:", error);
+  }
+};
 
 const updateLikeButtonUI = () => {
   if (isLiked) {
@@ -109,27 +109,27 @@ const updateLikeButtonUI = () => {
   }
 };
 
-const toggleLike = async (moduleId) => {
-  try {
-    const moduleRef = doc(db, "modules", moduleId);
+// const toggleLike = async (moduleId) => {
+//   try {
+//     const moduleRef = doc(db, "modules", moduleId);
 
-    if (isLiked) {
-      await updateDoc(moduleRef, { likes: increment(-1) });
-    } else {
-      await updateDoc(moduleRef, { likes: increment(1) });
-    }
+//     if (isLiked) {
+//       await updateDoc(moduleRef, { likes: increment(-1) });
+//     } else {
+//       await updateDoc(moduleRef, { likes: increment(1) });
+//     }
 
-    isLiked = !isLiked; // Toggle status
-    const moduleDoc = await getDoc(moduleRef);
-    if (moduleDoc.exists()) {
-      const moduleData = moduleDoc.data();
-      likeCountElement.innerText = moduleData.likes;
-      updateLikeButtonUI();
-    }
-  } catch (error) {
-    console.error("Error updating likes:", error);
-  }
-};
+//     isLiked = !isLiked; // Toggle status
+//     const moduleDoc = await getDoc(moduleRef);
+//     if (moduleDoc.exists()) {
+//       const moduleData = moduleDoc.data();
+//       likeCountElement.innerText = moduleData.likes;
+//       updateLikeButtonUI();
+//     }
+//   } catch (error) {
+//     console.error("Error updating likes:", error);
+//   }
+// };
 // const loadModuleData = async (moduleId) => {
 //   try {
 //     const moduleRef = doc(db, "modules", moduleId);
@@ -223,7 +223,7 @@ likeButton.addEventListener("click", async (event) => {
   }
 
   try {
-    await toggleLike(moduleId); // Fungsi toggleLike dari langkah sebelumnya
+    await toggleLike(userId, moduleId, isLiked); // Fungsi toggleLike dari langkah sebelumnya
     // isLiked = !isLiked; // Ubah status
     // const moduleRef = doc(db, "modules", moduleId);
     // const moduleDoc = await getDoc(moduleRef);
@@ -234,7 +234,7 @@ likeButton.addEventListener("click", async (event) => {
     // }
     // const currentCount = parseInt(likeCountElement.innerText, 10);
     // likeCountElement.innerText = isLiked ? currentCount + 1 : currentCount - 1;
-    // updateLikeButtonUI();
+    updateLikeButtonUI();
   } catch (error) {
     console.error("Error handling like button:", error);
   }
