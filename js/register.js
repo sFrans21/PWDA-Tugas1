@@ -39,6 +39,7 @@ submit.addEventListener("click", function (event) {
   // const lastName = document.getElementById("lasttName").value;
   const auth = getAuth();
   const db = getFirestore();
+
   createUserWithEmailAndPassword(auth, email, password, nim, faculty)
     .then((userCredential) => {
       // Signed up
@@ -52,8 +53,20 @@ submit.addEventListener("click", function (event) {
       alert("Membuat akun...");
       const docRef = doc(db, "user", user.uid);
       setDoc(docRef, userData)
-        .then(() => {
-          alert("Berhasil membuat akun");
+        .then(async () => {
+          const moduleId = "modul1";
+          const moduleData = {
+            likes: 0,
+            quizProgress: {
+              finished: false,
+              score: 0,
+            },
+          };
+
+          const moduleRef = doc(db, "user", user.uid, "modules", moduleId);
+          await setDoc(moduleRef, moduleData);
+
+          alert("Berhasil membuat akun dengan modul");
           window.location.href = "login.html";
         })
         // window.location.href = "login.html";
