@@ -223,7 +223,7 @@ likeButton.addEventListener("click", async (event) => {
   }
 
   try {
-    await toggleLike(userId, moduleId, isLiked); // Fungsi toggleLike dari langkah sebelumnya
+    await toggleLike(moduleId); // Fungsi toggleLike dari langkah sebelumnya
     // isLiked = !isLiked; // Ubah status
     // const moduleRef = doc(db, "modules", moduleId);
     // const moduleDoc = await getDoc(moduleRef);
