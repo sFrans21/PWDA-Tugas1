@@ -35,7 +35,7 @@ update.addEventListener("click", function (event) {
       updateDoc(userDocRef, {
         name: name,
         email: email,
-        password: newpass,
+        // password: newpass,
         nim: nim,
         faculty: faculty,
       });
