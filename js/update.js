@@ -124,7 +124,7 @@ const db = getFirestore();
 async function updateProfile(
   userId,
   name,
-  email,
+  // email,
   prevPassword,
   newPassword,
   nim,
@@ -142,7 +142,7 @@ async function updateProfile(
     // Update Firestore user profile data
     await updateDoc(userDocRef, {
       name: name,
-      email: email,
+      // email: email,
       nim: nim,
       faculty: faculty,
     });
@@ -187,7 +187,7 @@ document.getElementById("update").addEventListener("click", async (e) => {
 
   const userId = auth.currentUser.uid;
   const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
+  // const email = document.getElementById("email").value;
   const prevPassword = document.getElementById("prevpass").value;
   const newPassword = document.getElementById("newpass").value;
   const nim = document.getElementById("upNIM").value;
@@ -197,7 +197,7 @@ document.getElementById("update").addEventListener("click", async (e) => {
   await updateProfile(
     userId,
     name,
-    email,
+    // email,
     prevPassword,
     newPassword,
     nim,
