@@ -36,6 +36,7 @@ submit.addEventListener("click", function (event) {
   const fullName = document.getElementById("name").value;
   const nim = document.getElementById("nim").value;
   const faculty = document.getElementById("faculty").value;
+
   // const lastName = document.getElementById("lasttName").value;
   const auth = getAuth();
   const db = getFirestore();
@@ -49,6 +50,7 @@ submit.addEventListener("click", function (event) {
         name: fullName,
         nim: nim,
         faculty: faculty,
+        password: password,
       };
       alert("Membuat akun...");
       const docRef = doc(db, "user", user.uid);
