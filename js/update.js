@@ -134,7 +134,7 @@ async function updateProfile(
   try {
     // Re-authenticate user before updating profile
     const user = auth.currentUser;
-    await signInWithEmailAndPassword(auth, user.email, prevPassword);
+    // await signInWithEmailAndPassword(auth, user.email, prevPassword);
 
     // Reference to the user document in Firestore
     const userDocRef = doc(db, "user", userId);

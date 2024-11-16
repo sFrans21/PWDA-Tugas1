@@ -68,7 +68,7 @@ submit.addEventListener("click", function (event) {
           const moduleRef = doc(db, "user", user.uid, "modules", moduleId);
           await setDoc(moduleRef, moduleData);
 
-          alert("Berhasil membuat akun dengan modul");
+          alert("Berhasil membuat akun");
           window.location.href = "login.html";
         })
         // window.location.href = "login.html";
