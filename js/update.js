@@ -158,12 +158,12 @@ async function updateProfile(
     }
 
     // If profile picture is provided, upload it (assuming storage integration)
-    if (profilePic) {
-      const profilePicUrl = await uploadProfilePic(userId, profilePic);
-      await updateDoc(userDocRef, {
-        profilePicUrl: profilePicUrl,
-      });
-    }
+    // if (profilePic) {
+    //   const profilePicUrl = await uploadProfilePic(userId, profilePic);
+    //   await updateDoc(userDocRef, {
+    //     profilePicUrl: profilePicUrl,
+    //   });
+    // }
 
     console.log("Profile updated successfully");
     alert("Profile updated successfully");
