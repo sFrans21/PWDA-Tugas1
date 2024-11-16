@@ -206,3 +206,27 @@ document.getElementById("update").addEventListener("click", async (e) => {
     profilePic
   );
 });
+
+onAuthStateChanged(auth, (user) => {
+  const loggedInUserId = localStorage.getItem("loggedInUserId");
+  if (loggedInUserId) {
+    const docRef = doc(db, "user", loggedInUserId);
+    getDoc(docRef)
+      .then((docSnap) => {
+        if (docSnap.exists()) {
+          const userData = docSnap.data();
+          document.getElementById("loggedUserName").innerText = userData.name;
+          document.getElementById("loggedUserEmail").innerText = userData.email;
+          document.getElementById("loggedNim").innerText = userData.nim;
+          document.getElementById("loggedFaculty").innerText = userData.faculty;
+        } else {
+          console.log("NO DOCUMENT FOUND MATCHING ID");
+        }
+      })
+      .catch((error) => {
+        console.log("Error getting document");
+      });
+  } else {
+    console.log("User ID not found in local storage");
+  }
+});
