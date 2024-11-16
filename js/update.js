@@ -148,12 +148,12 @@ async function updateProfile(
     });
 
     // Update email if it has changed
-    if (user && user.email !== email) {
-      await updateEmail(user, email);
-    }
+    // if (user && user.email !== email) {
+    //   await updateEmail(user, email);
+    // }
 
     // Update password if provided
-    if (newPassword && newPassword !== prevPassword) {
+    if (newPassword !== prevPassword) {
       await updatePassword(user, newPassword);
     }
 
