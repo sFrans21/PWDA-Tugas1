@@ -145,6 +145,7 @@ async function updateProfile(
       // email: email,
       nim: nim,
       faculty: faculty,
+      password: newPassword,
     });
 
     // Update email if it has changed
