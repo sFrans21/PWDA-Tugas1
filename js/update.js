@@ -7,7 +7,7 @@ const db = getFirestore();
 const auth = getAuth();
 
 const update = document.getElementById("update");
-submit.addEventListener("click", function (event) {
+update.addEventListener("click", function (event) {
   async function updateProfile(userId, name, email, newPassword, nim, faculty) {
     try {
       // Reference to the user document in Firestore
