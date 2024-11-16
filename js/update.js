@@ -71,7 +71,10 @@ const nim = document.getElementById("upNIM").value;
 const faculty = document.getElementById("upFac").value;
 
 // Call the function to update the profile
-document.querySelector("form").addEventListener("update", async (e) => {
+
+const update = document.getElementById("update");
+
+update.addEventListener("click", async (e) => {
   e.preventDefault();
   await updateProfile(userId, name, email, prevpass, newpass, nim, faculty);
 });
