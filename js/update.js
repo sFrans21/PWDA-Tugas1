@@ -6,59 +6,65 @@ import { getAuth, updateEmail, updatePassword } from "firebase/auth";
 const db = getFirestore();
 const auth = getAuth();
 
-// Function to update user profile
-async function updateProfile(userId, name, email, newPassword, profilePic) {
-  try {
-    // Reference to the user document in Firestore
-    const userDocRef = doc(db, "user", userId);
+const update = document.getElementById("update");
+submit.addEventListener("click", function (event) {
+  async function updateProfile(userId, name, email, newPassword, nim, faculty) {
+    try {
+      // Reference to the user document in Firestore
+      const userDocRef = doc(db, "user", userId);
 
-    // Update Firestore user profile data
-    await updateDoc(userDocRef, {
-      name: name,
-      email: email,
-    });
-
-    // If profile picture is provided, update profile picture URL in Firestore (assuming URL is being saved)
-    if (profilePic) {
-      const profilePicUrl = await uploadProfilePic(userId, profilePic);
+      // Update Firestore user profile data
       await updateDoc(userDocRef, {
-        profilePicUrl: profilePicUrl,
+        name: name,
+        email: email,
+        password: newpass,
+        nim: nim,
+        faculty: faculty,
       });
-    }
 
-    // Update email if it has changed
-    if (auth.currentUser && auth.currentUser.email !== email) {
-      await updateEmail(auth.currentUser, email);
-    }
+      // If profile picture is provided, update profile picture URL in Firestore (assuming URL is being saved)
+      // if (profilePic) {
+      //   const profilePicUrl = await uploadProfilePic(userId, profilePic);
+      //   await updateDoc(userDocRef, {
+      //     profilePicUrl: profilePicUrl,
+      //   });
+      // }
 
-    // Update password if provided
-    if (newPassword) {
-      await updatePassword(auth.currentUser, newPassword);
-    }
+      // Update email if it has changed
+      if (auth.currentUser && auth.currentUser.email !== email) {
+        await updateEmail(auth.currentUser, email);
+      }
 
-    console.log("Profile updated successfully");
-  } catch (error) {
-    console.error("Error updating profile: ", error);
+      // Update password if provided
+      if (newPassword) {
+        await updatePassword(auth.currentUser, newPassword);
+      }
+
+      console.log("Profile updated successfully");
+    } catch (error) {
+      console.error("Error updating profile: ", error);
+    }
   }
-}
 
-// Function to upload the profile picture to storage
-async function uploadProfilePic(userId, file) {
-  // Implement the profile picture upload here (e.g., using Firebase Storage)
-  // For the purpose of this example, we assume the function returns the download URL of the uploaded image
-  const downloadUrl = "https://example.com/path/to/uploaded/image.jpg";
-  return downloadUrl;
-}
+  // Function to upload the profile picture to storage
+  // async function uploadProfilePic(userId, file) {
+  //   // Implement the profile picture upload here (e.g., using Firebase Storage)
+  //   // For the purpose of this example, we assume the function returns the download URL of the uploaded image
+  //   const downloadUrl = "https://example.com/path/to/uploaded/image.jpg";
+  //   return downloadUrl;
+  // }
 
-// Usage
-const userId = "your_user_id_here";
-const name = "New Name";
-const email = "new_email@example.com";
-const newPassword = "new_password_here";
-const profilePic = document.querySelector("input[type='file']").files[0];
+  // Usage
+  const email = document.getElementById("email").value;
+  const prevpass = document.getElementById("prevpass").value;
+  const newpass = document.getElementById("newpass").value;
+  const name = document.getElementById("name").value;
+  const nim = document.getElementById("upNIM").value;
+  const faculty = document.getElementById("upFac").value;
 
-// Call the function to update the profile
-document.querySelector("form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  await updateProfile(userId, name, email, newPassword, profilePic);
+  // Call the function to update the profile
+  document.querySelector("form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    await updateProfile(userId, name, email, newpass, nim, faculty);
+  });
 });

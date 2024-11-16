@@ -105,47 +105,73 @@
         <h3>update profile</h3>
         <p>update name</p>
         <input
+          id="name"
           type="text"
           name="name"
-          placeholder="Samuel Franciscus"
+          placeholder="masukkan nama barumu"
           maxlength="50"
           class="box"
         />
         <p>update email</p>
         <input
+          id="email"
           type="email"
           name="email"
-          placeholder="shaikh@gmail.come"
+          placeholder="masukkan email barumu"
           maxlength="50"
           class="box"
         />
+        <p>update NIM</p>
+        <input
+          id="upNIM"
+          type="NIM"
+          name="updateNIM"
+          placeholder="masukkan NIM barumu"
+          maxlength="20"
+          class="box"
+        />
+
+        <p>update faculty</p>
+        <input
+          id="upFac"
+          type="faculty"
+          name="updateFaculty"
+          placeholder="masukkan nama fakultas barumu"
+          maxlength="20"
+          class="box"
+        />
+
         <p>previous password</p>
         <input
+          id="prevpass"
           type="password"
           name="old_pass"
-          placeholder="enter your old password"
+          placeholder="masukkan password lamamu"
           maxlength="20"
           class="box"
         />
         <p>new password</p>
         <input
+          id="newpass"
           type="password"
           name="new_pass"
-          placeholder="enter your old password"
+          placeholder="masukkan password barumu"
           maxlength="20"
           class="box"
         />
-        <p>confirm password</p>
+        <!-- <p>confirm password</p>
         <input
           type="password"
           name="c_pass"
-          placeholder="confirm your new password"
+          placeholder="konfirmasi ulang password"
           maxlength="20"
           class="box"
-        />
+        /> -->
+
+
         <p>update pic</p>
         <input type="file" accept="image/*" class="box" />
-        <input type="submit" value="update profile" name="submit" class="btn" />
+        <input id="update" type="update" value="update profile" name="submitUpdate" class="btn" />
       </form>
     </section>
 
