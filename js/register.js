@@ -51,6 +51,7 @@ submit.addEventListener("click", function (event) {
         nim: nim,
         faculty: faculty,
         password: password,
+        profilePic,
       };
       alert("Membuat akun...");
       const docRef = doc(db, "user", user.uid);
