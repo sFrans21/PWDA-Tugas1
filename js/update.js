@@ -153,7 +153,7 @@ async function updateProfile(
       nim: nim,
       faculty: faculty,
       password: newPassword,
-      profilePicUrl: profilePicUrl,
+      // profilePicUrl: profilePicUrl,
     });
 
     // Update email if it has changed
@@ -169,9 +169,11 @@ async function updateProfile(
     // If profile picture is provided, upload it (assuming storage integration)
     if (profilePic) {
       const profilePicUrl = await uploadProfilePic(userId, profilePic);
-      await updateDoc(userDocRef, {
-        profilePicUrl: profilePicUrl,
-      });
+      if (profilePicUrl) {
+        await updateDoc(userDocRef, {
+          profilePicUrl: profilePicUrl,
+        });
+      }
     }
 
     console.log("Profile updated successfully");
