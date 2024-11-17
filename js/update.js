@@ -94,6 +94,13 @@
 // Import necessary Firestore SDK components
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import {
+  getStorage,
+  ref,
+  uploadBytes,
+  getDownloadURL,
+} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-storage.js";
+
+import {
   getAuth,
   updateEmail,
   updatePassword,
@@ -146,6 +153,7 @@ async function updateProfile(
       nim: nim,
       faculty: faculty,
       password: newPassword,
+      profilePicUrl: profilePicUrl,
     });
 
     // Update email if it has changed
@@ -159,12 +167,12 @@ async function updateProfile(
     }
 
     // If profile picture is provided, upload it (assuming storage integration)
-    // if (profilePic) {
-    //   const profilePicUrl = await uploadProfilePic(userId, profilePic);
-    //   await updateDoc(userDocRef, {
-    //     profilePicUrl: profilePicUrl,
-    //   });
-    // }
+    if (profilePic) {
+      const profilePicUrl = await uploadProfilePic(userId, profilePic);
+      await updateDoc(userDocRef, {
+        profilePicUrl: profilePicUrl,
+      });
+    }
 
     console.log("Profile updated successfully");
     alert("Profile updated successfully");
@@ -175,11 +183,18 @@ async function updateProfile(
 }
 
 // Function to upload the profile picture to storage
+
 async function uploadProfilePic(userId, file) {
-  // Implement the profile picture upload here (e.g., using Firebase Storage)
-  // For this example, we assume the function returns the download URL of the uploaded image
-  const downloadUrl = "https://example.com/path/to/uploaded/image.jpg";
-  return downloadUrl;
+  try {
+    const storage = getStorage();
+    const storageRef = ref(storage, `profile_pictures/${userId}/${file.name}`);
+    await uploadBytes(storageRef, file);
+    const downloadUrl = await getDownloadURL(storageRef);
+    return downloadUrl;
+  } catch (error) {
+    console.error("Error uploading profile picture: ", error);
+    throw new Error("Failed to upload profile picture");
+  }
 }
 
 // Event listener for form submission
@@ -193,7 +208,7 @@ document.getElementById("update").addEventListener("click", async (e) => {
   const newPassword = document.getElementById("newpass").value;
   const nim = document.getElementById("upNIM").value;
   const faculty = document.getElementById("upFac").value;
-  const profilePic = document.querySelector("input[type='file']").files[0];
+  const profilePic = document.getElementById("profilePic").files[0];
 
   await updateProfile(
     userId,
