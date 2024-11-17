@@ -192,14 +192,21 @@ const retakeQuiz = () => {
   quizContainer.style.display = "block";
 };
 
-const displayQuizResult = () => {
+const displayQuizResult = async () => {
   quizResult.style.display = "flex";
   quizContainer.style.display = "none";
   quizResult.innerHTML = "";
 
+  const percentageScore = (score / MAX_QUESTIONS) * 100;
+  const userId = localStorage.getItem("loggedInUserId"); // Pastikan ID user tersedia
+  const moduleId = "modul1"; // Ganti dengan ID modul yang sesuai
   const resultHeading = document.createElement("h2");
   resultHeading.innerHTML = `You have scored ${score} out of ${MAX_QUESTIONS}.`;
   quizResult.appendChild(resultHeading);
+
+  if (userId) {
+    await saveQuizProgress(userId, moduleId, percentageScore, true);
+  }
 
   for (let i = 0; i < MAX_QUESTIONS; i++) {
     const resultItem = document.createElement("div");
@@ -270,3 +277,10 @@ const saveQuizProgress = (userId, moduleId, score, status) => {
       console.error("Error menyimpan progress quiz: ", error);
     });
 };
+
+// window.addEventListener("beforeunload", (e) => {
+//   if (questionNumber < MAX_QUESTIONS - 1) {
+//     e.preventDefault();
+//     e.returnValue = "Belum selesai quiz. Yakin ingin pergi?";
+//   }
+// });

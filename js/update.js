@@ -174,6 +174,8 @@ async function updateProfile(
           profilePicUrl: profilePicUrl,
         });
       }
+    } else {
+      console.log("No profile picture selected");
     }
 
     console.log("Profile updated successfully");
