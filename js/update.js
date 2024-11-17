@@ -168,6 +168,7 @@ async function updateProfile(
 
     // If profile picture is provided, upload it (assuming storage integration)
     if (profilePic) {
+      console.log("Profile picture file selected:", profilePic);
       const profilePicUrl = await uploadProfilePic(userId, profilePic);
       if (profilePicUrl) {
         await updateDoc(userDocRef, {
