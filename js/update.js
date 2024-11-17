@@ -186,7 +186,7 @@ async function updateProfile(
 
 async function uploadProfilePic(userId, file) {
   try {
-    const storage = getStorage();
+    const storage = getStorage(app);
     const storageRef = ref(storage, `profile_pictures/${userId}/${file.name}`);
     await uploadBytes(storageRef, file);
     const downloadUrl = await getDownloadURL(storageRef);
