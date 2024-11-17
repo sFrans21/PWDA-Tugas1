@@ -191,7 +191,9 @@ async function uploadProfilePic(userId, file) {
     const storage = getStorage(app);
     const storageRef = ref(storage, `profile_pictures/${userId}/${file.name}`);
     await uploadBytes(storageRef, file);
+    console.log("File berhasil diupload ke Storage");
     const downloadUrl = await getDownloadURL(storageRef);
+    console.log("Download URL:", downloadUrl);
     return downloadUrl;
   } catch (error) {
     console.error("Error uploading profile picture: ", error);
