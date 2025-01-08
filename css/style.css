@@ -3,7 +3,7 @@
 :root {
   --main-color: #b17457;
   --red: #d8d2c2;
-  --orange: #4a4947;
+  --grey: #4a4947;
   --light-color: #888;
   --light-bg: #eee;
   --black: #2c3e50;
@@ -12,7 +12,7 @@
 }
 
 * {
-  font-family: "Amarante", serif;
+  font-family: "nunito", serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -112,7 +112,7 @@ section {
 
 .option-btn,
 .inline-option-btn {
-  background-color: var(--orange);
+  background-color: var(--grey);
 }
 
 .delete-btn,
@@ -524,7 +524,7 @@ section {
 
 .reviews .box-container .box .student .stars {
   font-size: 1.5rem;
-  color: var(--orange);
+  color: var(--grey);
 }
 
 .modul .box-container {
